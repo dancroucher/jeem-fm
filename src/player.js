@@ -963,8 +963,8 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
-        videosInPlaylist = player;
-        console.log(player.getPlaylist);
+        //videosInPlaylist = player;
+        console.log(player.getPlaylist());
         // localStorage.setItem('track', youtubeIndex);
         // localStorage.getItem('track');
 }
