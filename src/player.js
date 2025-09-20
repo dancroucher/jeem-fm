@@ -62,7 +62,7 @@ var backtypes = [0,1,2];
 var bgTypeIndex;
 var genretypes = [0,1];
 var genreIndex;
-var youtubeIndex = 0;
+var youtubeIndex = 1;
 var fadeTime = 3750;
 
 let playing = false;
@@ -953,6 +953,8 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
+        localStorage.setItem('track', youtubeIndex);
+        localStorage.getItem('track');
 }
 
 function playYoutubeVideo() {
