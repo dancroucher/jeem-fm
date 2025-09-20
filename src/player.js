@@ -134,7 +134,7 @@ function playPause() {
         loadGenreType();
         //playYoutubeVideo();
         playYoutubePlaylist();
-        UpdateTrackNumber();
+        
         UpdateUI();
         starting = false;
     }
@@ -1010,7 +1010,7 @@ function onPlayerReady(event) {
     videosInPlaylist = player.getPlaylist();
     console.log(videosInPlaylist);
 
-    youtubeIndex = player.getIndex();
+    youtubeIndex = player.getPlaylistIndex();
     localStorage.setItem('track', youtubeIndex);
     localStorage.getItem('track');
 
@@ -1019,7 +1019,7 @@ function onPlayerReady(event) {
     document.getElementById("song-author").className = 'song-author';
     songName.innerHTML =songTitle;
     songAuthor.innerHTML = songChannel;
-
+    UpdateTrackNumber();
         // console.log("playing");
   // UpdateUI();
 
