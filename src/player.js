@@ -62,7 +62,7 @@ var backtypes = [0,1,2];
 var bgTypeIndex;
 var genretypes = [0,1];
 var genreIndex;
-var youtubeIndex = 1;
+var youtubeIndex;
 var fadeTime = 3750;
 
 let playing = false;
@@ -616,7 +616,7 @@ function UpdateGenreName() {
 
 function UpdateTrackNumber(){
     if (genreIndex == 0){
-        var trackNumber = parseInt(youtubeIndex, 10) + 1;
+        var trackNumber = parseInt(youtubeIndex, 10);
         //var trackNumber = player.videoCount;
         genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+"1";
     }
@@ -933,6 +933,13 @@ var player;
 
 function playYoutubePlaylist() 
 {
+    if (localStorage.getItem('track') == null){
+            youtubeIndex = 1;  
+    }
+    else
+    {
+        let youtubeIndex = localStorage.getItem('track');
+    }
         player = new YT.Player('bg-youtube', {
           height: '390',
           width: '640',
@@ -947,7 +954,7 @@ function playYoutubePlaylist()
             modestbranding: 1,
             listType:'playlist',
             list: 'PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp',
-            index: 5
+            index: youtubeIndex
           },
                   events: {
             'onReady': onPlayerReady,
