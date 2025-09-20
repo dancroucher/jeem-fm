@@ -964,7 +964,7 @@ function playYoutubePlaylist()
         }
         });
         videosInPlaylist = player;
-        console.log(videosInPlaylist);
+        console.log(player.getPlaylist);
         // localStorage.setItem('track', youtubeIndex);
         // localStorage.getItem('track');
 }
