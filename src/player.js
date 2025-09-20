@@ -621,6 +621,12 @@ function UpdateTrackNumber(){
         var trackNumber = parseInt(youtubeIndex, 10);
         //var trackNumber = player.videoCount;
         genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
+        var songTitle = player.getVideoData().title;
+        var songChannel = player.getVideoData().author;
+        document.getElementById("song-author").className = 'song-author';
+        songName.innerHTML =songTitle;
+        songAuthor.innerHTML = songChannel;
+        songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
     }
     else if (genreIndex == 1){
         widget.getSounds(function(currentSound) {
@@ -1008,7 +1014,7 @@ function onPlayerReady(event) {
     player.playVideo();
 
     videosInPlaylist = player.getPlaylist();
-    console.log(videosInPlaylist);
+    //console.log(videosInPlaylist);
 
 
 
@@ -1016,11 +1022,8 @@ function onPlayerReady(event) {
     // localStorage.setItem('track', youtubeIndex);
     // localStorage.getItem('track');
 
-    var songTitle = player.getVideoData().title;
-    var songChannel = player.getVideoData().author;
-    document.getElementById("song-author").className = 'song-author';
-    songName.innerHTML =songTitle;
-    songAuthor.innerHTML = songChannel;
+
+
     UpdateTrackNumber();
         // console.log("playing");
   // UpdateUI();
@@ -1061,7 +1064,6 @@ function updateProgressValue() {
         else if (genreIndex ==1){
             // document.getElementById("song-author").className = 'song-author';
         }
-        // songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
 
 };  
 
