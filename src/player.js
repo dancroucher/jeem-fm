@@ -961,8 +961,8 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
-        localStorage.setItem('track', youtubeIndex);
-        localStorage.getItem('track');
+        // localStorage.setItem('track', youtubeIndex);
+        // localStorage.getItem('track');
 }
 
 function playYoutubeVideo() {
