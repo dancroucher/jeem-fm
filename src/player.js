@@ -963,8 +963,7 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
-        videosInPlaylist = player.getPlaylist();
-        console.log(videosInPlaylist);
+
         // localStorage.setItem('track', youtubeIndex);
         // localStorage.getItem('track');
 }
@@ -1009,6 +1008,13 @@ function onPlayerReady(event) {
 // document.getElementById("youtube-audio").style.display = "block";
     event.target.playVideo();
         player.playVideo();
+        videosInPlaylist = player.getPlaylist();
+        console.log(videosInPlaylist);
+        var songTitle = player.getVideoData().title;
+        var songChannel = player.getVideoData().author;
+        document.getElementById("song-author").className = 'song-author';
+        songName.innerHTML =songTitle;
+        songAuthor.innerHTML = songChannel;
         // console.log("playing");
   // UpdateUI();
 
@@ -1036,14 +1042,14 @@ function updateProgressValue() {
             //     document.getElementById("song-author").className = 'song-author-empty';
             // }
             // else{
-                songTitle = player.getVideoData().title;
+            
                 // songURL.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+youtubes[youtubeIndex]+"</a>"; 
-                songChannel = player.getVideoData().author;
-                document.getElementById("song-author").className = 'song-author';
-            //}
-            songName.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+songTitle+"</a>" ;
-            songAuthor.innerHTML = songChannel;
-            genrePlaylist.innerHTML = songChannel;
+                
+            //     document.getElementById("song-author").className = 'song-author';
+            // //}
+            // songName.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+songTitle+"</a>" ;
+            // songAuthor.innerHTML = songChannel;
+            // genrePlaylist.innerHTML = songChannel;
 
         }
         else if (genreIndex ==1){
