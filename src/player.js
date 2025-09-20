@@ -132,6 +132,7 @@ function playPause() {
         loadGenreType();
         //playYoutubeVideo();
         playYoutubePlaylist();
+        UpdateTrackNumber();
         UpdateUI();
         starting = false;
     }
