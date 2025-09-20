@@ -934,7 +934,13 @@ var player;
 
 function playYoutubePlaylist() 
 {
-
+    if (localStorage.getItem('track') == null){
+        youtubeIndex = 1;//add one to track 1 from track 0  
+    }
+    else
+    {
+        let youtubeIndex = localStorage.getItem('track');
+    }
         player = new YT.Player('bg-youtube', {
           height: '390',
           width: '640',
@@ -949,7 +955,7 @@ function playYoutubePlaylist()
             modestbranding: 1,
             listType:'playlist',
             list: 'PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp',
-            index: 0
+            index: youtubeIndex
           },
                   events: {
             'onReady': onPlayerReady,
@@ -1004,14 +1010,7 @@ function onPlayerReady(event) {
     videosInPlaylist = player.getPlaylist();
     console.log(videosInPlaylist);
 
-    if (localStorage.getItem('track') == null){
-        youtubeIndex = player.getPlaylistIndex() + 1;//add one to track 1 from track 0  
-    }
-    else
-    {
-        let youtubeIndex = localStorage.getItem('track');
-        player.setPlaylistIndex(youtubeIndex);
-    }
+
 
     
     // localStorage.setItem('track', youtubeIndex);
