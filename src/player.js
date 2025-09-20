@@ -101,7 +101,7 @@ function playPause() {
         if (playing == false) {
             playing = true;
             if (genreIndex == 0){
-                //player.playVideo();
+                player.playVideo();
             }
             else if (genreIndex == 1){
                 //toggleSoundcloud();
@@ -114,7 +114,7 @@ function playPause() {
         else if (playing == true) {
             playing = false;
             if (genreIndex == 0){
-            // player.pauseVideo();
+                player.pauseVideo();
             }
             else if (genreIndex == 1){
                 toggleSoundcloud();
@@ -504,7 +504,7 @@ function loadGenreType(){
         genreName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;YouTube";
         genreName.className = 'genre-name youtube';
         genrePlaylist.className = 'genre-playlist youtubep';
-        youtubeList = youtubeList_all;
+        // youtubeList = youtubeList_all;
         document.getElementById("soundcloud-container").style.display="none";
         //changeBackground();
         UpdateUI();
@@ -816,7 +816,7 @@ function formatTime(seconds) {
     return `${min}:${sec}`;
 };
 
-//setInterval(updateProgressValue, 500);
+setInterval(updateProgressValue, 500);
 //setInterval(newBackground, 5000);
 
 function doFullscreen() {
@@ -944,6 +944,7 @@ function playYoutubeVideo() {
             'onStateChange': onPlayerStateChange
         }
     });
+    UpdateTrackNumber();
 }
 
 function togglePlayButton(play) {
