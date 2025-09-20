@@ -55,6 +55,7 @@ var videoNameClean;
 let pPause = document.querySelector('#play-pause'); // element where play and pause image appears
 var player;
 var youtubes = [];
+var videosInPlaylist = [];
 var soundclouds = [];
 var gifbackgrounds = [];
 var mp4backgrounds = [];
@@ -62,8 +63,8 @@ var backtypes = [0,1,2];
 var bgTypeIndex;
 var genretypes = [0,1];
 var genreIndex;
-var youtubeIndex;
-var fadeTime = 3750;
+var youtubeIndex = 1;
+var fadeTime = 3000;
 
 let playing = false;
 let starting = true;
@@ -86,7 +87,7 @@ window.onload = function() {
     getVideoBackgrounds();
     getGifBackgrounds(); 
 
-}
+}=
 
 //landing screen
 document.addEventListener('DOMContentLoaded', function() {
@@ -94,13 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //mp4background.play();
     start.innerHTML = "Click / tap anywhere to start";
     backgroundAuto.style.display="none";
-    if (localStorage.getItem('track') == null){
-            youtubeIndex = 1;  
-    }
-    else
-    {
-        let youtubeIndex = localStorage.getItem('track');
-    }
+
     }, 0);
 }, false);
 
@@ -940,13 +935,13 @@ var player;
 
 function playYoutubePlaylist() 
 {
-    if (localStorage.getItem('track') == null){
-            youtubeIndex = 1;  
-    }
-    else
-    {
-        let youtubeIndex = localStorage.getItem('track');
-    }
+    // if (localStorage.getItem('track') == null){
+    //         youtubeIndex = 1;  
+    // }
+    // else
+    // {
+    //     let youtubeIndex = localStorage.getItem('track');
+    // }
         player = new YT.Player('bg-youtube', {
           height: '390',
           width: '640',
@@ -968,6 +963,8 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
+        videosInPlaylist = player.get_playlist();
+        console.log(videosInPlaylist);
         // localStorage.setItem('track', youtubeIndex);
         // localStorage.getItem('track');
 }
