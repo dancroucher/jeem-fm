@@ -62,7 +62,7 @@ var backtypes = [0,1,2];
 var bgTypeIndex;
 var genretypes = [0,1];
 var genreIndex;
-var youtubeIndex = 1;
+var youtubeIndex = 0;
 var fadeTime = 3750;
 
 let playing = false;
@@ -946,7 +946,8 @@ function playYoutubePlaylist()
             iv_load_policy: 3,
             modestbranding: 1,
             listType:'playlist',
-            list: 'PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp'
+            list: 'PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp',
+            index: 5
           },
                   events: {
             'onReady': onPlayerReady,
