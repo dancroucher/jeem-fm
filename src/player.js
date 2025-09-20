@@ -924,7 +924,8 @@ else{
 var player;
 function playYoutubeVideo() {
     // var myVideoId = youtubes[0];
-    var myVideoId = "UL98fEff8yY";
+    //var myVideoId = "UL98fEff8yY";
+    var myVideoId = "PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp";
     var ctrlq = document.getElementById("bg-youtube");
     player = new YT.Player('bg-youtube', {
         height: '1080',
@@ -988,7 +989,7 @@ function updateProgressValue() {
             //     document.getElementById("song-author").className = 'song-author-empty';
             // }
             // else{
-                songTitle = player.getVideoData().title;
+                //songTitle = player.getVideoData().title;
                 // songURL.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+youtubes[youtubeIndex]+"</a>"; 
                 songChannel = player.getVideoData().author;
                 document.getElementById("song-author").className = 'song-author';
