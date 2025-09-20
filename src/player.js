@@ -944,7 +944,6 @@ function playYoutubeVideo() {
             'onStateChange': onPlayerStateChange
         }
     });
-    UpdateTrackNumber();
 }
 
 function togglePlayButton(play) {
@@ -983,17 +982,17 @@ function updateProgressValue() {
         var songTitle;
         var songChannel;
         if (genreIndex == 0){
-            if (player.getVideoData().title == ""){
-                songTitle = "";
-                songChannel = "";
-                document.getElementById("song-author").className = 'song-author-empty';
-            }
-            else{
+            // if (player.getVideoData().title == ""){
+            //     songTitle = "";
+            //     songChannel = "";
+            //     document.getElementById("song-author").className = 'song-author-empty';
+            // }
+            // else{
                 songTitle = player.getVideoData().title;
                 // songURL.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+youtubes[youtubeIndex]+"</a>"; 
                 songChannel = player.getVideoData().author;
                 document.getElementById("song-author").className = 'song-author';
-            }
+            //}
             songName.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+songTitle+"</a>" ;
             songAuthor.innerHTML = songChannel;
             genrePlaylist.innerHTML = songChannel;
