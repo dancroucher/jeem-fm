@@ -620,7 +620,7 @@ function UpdateTrackNumber(){
     if (genreIndex == 0){
         var trackNumber = parseInt(youtubeIndex, 10);
         //var trackNumber = player.videoCount;
-        genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+"1";
+        genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
     }
     else if (genreIndex == 1){
         widget.getSounds(function(currentSound) {
@@ -674,9 +674,8 @@ function nextSong() {
         //     youtubeIndex = 0;
         // }
         player.nextVideo();
-       //player.loadVideoById(youtubes[youtubeIndex]);
-            localStorage.setItem('track', youtubeIndex);
-            localStorage.getItem('track');
+        localStorage.setItem('track', youtubeIndex);
+        localStorage.getItem('track');
         }
     else if (genreIndex == 1){
         widget.next();
@@ -1005,16 +1004,22 @@ function doPopup() {
 function onPlayerReady(event) {
     player.setPlaybackQuality("hd1080");
     player.setVolume(100);
-// document.getElementById("youtube-audio").style.display = "block";
     event.target.playVideo();
-        player.playVideo();
-        videosInPlaylist = player.getPlaylist();
-        console.log(videosInPlaylist);
-        var songTitle = player.getVideoData().title;
-        var songChannel = player.getVideoData().author;
-        document.getElementById("song-author").className = 'song-author';
-        songName.innerHTML =songTitle;
-        songAuthor.innerHTML = songChannel;
+    player.playVideo();
+
+    videosInPlaylist = player.getPlaylist();
+    console.log(videosInPlaylist);
+
+    youtubeIndex = player.getIndex();
+    localStorage.setItem('track', youtubeIndex);
+    localStorage.getItem('track');
+
+    var songTitle = player.getVideoData().title;
+    var songChannel = player.getVideoData().author;
+    document.getElementById("song-author").className = 'song-author';
+    songName.innerHTML =songTitle;
+    songAuthor.innerHTML = songChannel;
+
         // console.log("playing");
   // UpdateUI();
 
@@ -1033,8 +1038,7 @@ function onPlayerStateChange(event) {
 }
 
 function updateProgressValue() {
-        var songTitle;
-        var songChannel;
+   
         if (genreIndex == 0){
             // if (player.getVideoData().title == ""){
             //     songTitle = "";
@@ -1053,9 +1057,9 @@ function updateProgressValue() {
 
         }
         else if (genreIndex ==1){
-            document.getElementById("song-author").className = 'song-author';
+            // document.getElementById("song-author").className = 'song-author';
         }
-        songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
+        // songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
 
 };  
 
