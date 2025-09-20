@@ -616,8 +616,8 @@ function UpdateGenreName() {
 function UpdateTrackNumber(){
     if (genreIndex == 0){
         //var trackNumber = parseInt(youtubeIndex, 10) + 1;
-        var trackNumber = player.getPlaylistIndex().length;
-        genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+player.getPlaylistIndex;
+        var trackNumber = player.videoCount;
+        genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+"1";
     }
     else if (genreIndex == 1){
         widget.getSounds(function(currentSound) {
