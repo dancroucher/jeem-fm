@@ -129,7 +129,8 @@ function playPause() {
         document.getElementById("song-container").style.display="block";
         loadBackgroundType();
         loadGenreType();
-        playYoutubeVideo();
+        //playYoutubeVideo();
+        playYoutubePlaylist();
         UpdateUI();
         starting = false;
     }
@@ -922,6 +923,31 @@ else{
 // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
+
+function playYoutubePlaylist() 
+{
+        player = new YT.Player('bg-youtube', {
+          height: '390',
+          width: '640',
+          playerVars: 
+          {
+            autoplay: 1,
+            controls: 0,
+            loop: 1,
+            disablekb: 1,
+            fs: 0,
+            iv_load_policy: 3,
+            modestbranding: 1,
+            listType:'playlist',
+            list: 'PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp'
+          },
+                  events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+        });
+}
+
 function playYoutubeVideo() {
     // var myVideoId = youtubes[0];
     //var myVideoId = "UL98fEff8yY";
