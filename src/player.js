@@ -94,6 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
     //mp4background.play();
     start.innerHTML = "Click / tap anywhere to start";
     backgroundAuto.style.display="none";
+    if (localStorage.getItem('track') == null){
+            youtubeIndex = 1;  
+    }
+    else
+    {
+        let youtubeIndex = localStorage.getItem('track');
+    }
     }, 0);
 }, false);
 
