@@ -630,10 +630,11 @@ function UpdateTrackNumber(){
 function previousSong() {
     if (genreIndex == 0){
         youtubeIndex--;
-        if (youtubeIndex < 0) {
-            youtubeIndex = youtubes.length-1;
-        }
-        player.loadVideoById(youtubes[youtubeIndex]);
+        // if (youtubeIndex < 0) {
+        //     youtubeIndex = youtubes.length-1;
+        // }
+        player.previousVideo();
+        // player.loadVideoById(youtubes[youtubeIndex]);
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
     }
