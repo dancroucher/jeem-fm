@@ -62,6 +62,7 @@ var backtypes = [0,1,2];
 var bgTypeIndex;
 var genretypes = [0,1];
 var genreIndex;
+var youtubeIndex = 0;
 var fadeTime = 3750;
 
 let playing = false;
@@ -663,10 +664,11 @@ function previousSong() {
 function nextSong() {
     if (genreIndex == 0){
         youtubeIndex++;
-        if (youtubeIndex > youtubes.length-1) {
-            youtubeIndex = 0;
-        }
-        player.loadVideoById(youtubes[youtubeIndex]);
+        // if (youtubeIndex > youtubes.length-1) {
+        //     youtubeIndex = 0;
+        // }
+        player.nextVideo();
+       //player.loadVideoById(youtubes[youtubeIndex]);
             localStorage.setItem('track', youtubeIndex);
             localStorage.getItem('track');
         }
@@ -690,7 +692,7 @@ function nextSong() {
         });
     }
     UpdateUI();
-    UpdateTrackNumber();
+    //UpdateTrackNumber();
 }
 
 // function randomSong(){
@@ -1015,7 +1017,7 @@ function updateProgressValue() {
             //     document.getElementById("song-author").className = 'song-author-empty';
             // }
             // else{
-                //songTitle = player.getVideoData().title;
+                songTitle = player.getVideoData().title;
                 // songURL.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+youtubes[youtubeIndex]+"</a>"; 
                 songChannel = player.getVideoData().author;
                 document.getElementById("song-author").className = 'song-author';
