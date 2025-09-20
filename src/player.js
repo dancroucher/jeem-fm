@@ -549,52 +549,52 @@ function loadGenreType(){
 }
 
 function changeGenreType() {
-    genreIndex++;
-    if (genreIndex > genretypes.length-1) {
-        genreIndex = 0;
-    };
-    if (genreIndex == 0){//Youtube
-        genreName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;YouTube";
-        genreName.className = 'genre-name youtube';
-        genrePlaylist.className = 'genre-playlist youtubep';
-        youtubeList = youtubeList_all;
-        document.getElementById("soundcloud-container").style.display="none";
-        changeBackground();
-        toggleSoundcloud();
-        UpdateUI();
-        getYoutubes();
-    }
-    // else if (genreIndex == 1){//synthwave
-    //     youtubeList = youtubeList_synth;
-    //     console.log(localStorage.getItem('playlist'));
-    //     document.getElementById("videoentry").style.display="none";
-    //     document.getElementById("genre-number").style.display="inline-block";
+    // genreIndex++;
+    // if (genreIndex > genretypes.length-1) {
+    //     genreIndex = 0;
+    // };
+    // if (genreIndex == 0){//Youtube
+    //     genreName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;YouTube";
+    //     genreName.className = 'genre-name youtube';
+    //     genrePlaylist.className = 'genre-playlist youtubep';
+    //     youtubeList = youtubeList_all;
+    //     document.getElementById("soundcloud-container").style.display="none";
+    //     changeBackground();
+    //     toggleSoundcloud();
+    //     UpdateUI();
+    //     getYoutubes();
     // }
-    // else if (genreIndex == 2){//game
-    //     youtubeList = youtubeList_game;
-    //     document.getElementById("videoentry").style.display="none";
-    //     document.getElementById("genre-number").style.display="inline-block";
+    // // else if (genreIndex == 1){//synthwave
+    // //     youtubeList = youtubeList_synth;
+    // //     console.log(localStorage.getItem('playlist'));
+    // //     document.getElementById("videoentry").style.display="none";
+    // //     document.getElementById("genre-number").style.display="inline-block";
+    // // }
+    // // else if (genreIndex == 2){//game
+    // //     youtubeList = youtubeList_game;
+    // //     document.getElementById("videoentry").style.display="none";
+    // //     document.getElementById("genre-number").style.display="inline-block";
+    // // }
+    // // else if (genreIndex == 3){//techno and drum and bass
+    // //     youtubeList = youtubeList_tdnb;
+    // //     document.getElementById("videoentry").style.display="none";
+    // //     document.getElementById("genre-number").style.display="inline-block";
+    // // }
+    // else if (genreIndex == 1){//Soundcloud
+    //     genreName.innerHTML = "<i class='fab fa-soundcloud'></i>&nbsp;Soundcloud";
+    //     youtubeList = youtubeList_none;
+    //     genreName.className = 'genre-name sc';
+    //     genrePlaylist.className = 'genre-playlist scp';
+    //     // document.getElementById("genre-number").style.display="inline-block";
+    //     document.getElementById("soundcloud-container").style.display="none";
+    //     changeBackground();
+    //     toggleSoundcloud();
+    //     //player.pauseVideo();
+    //     UpdateUI();
+    //     UpdateTrackNumber();
     // }
-    // else if (genreIndex == 3){//techno and drum and bass
-    //     youtubeList = youtubeList_tdnb;
-    //     document.getElementById("videoentry").style.display="none";
-    //     document.getElementById("genre-number").style.display="inline-block";
-    // }
-    else if (genreIndex == 1){//Soundcloud
-        genreName.innerHTML = "<i class='fab fa-soundcloud'></i>&nbsp;Soundcloud";
-        youtubeList = youtubeList_none;
-        genreName.className = 'genre-name sc';
-        genrePlaylist.className = 'genre-playlist scp';
-        // document.getElementById("genre-number").style.display="inline-block";
-        document.getElementById("soundcloud-container").style.display="none";
-        changeBackground();
-        toggleSoundcloud();
-        //player.pauseVideo();
-        UpdateUI();
-        UpdateTrackNumber();
-    }
-    localStorage.setItem('genretype', genreIndex);
-    localStorage.getItem('genretype');
+    // localStorage.setItem('genretype', genreIndex);
+    // localStorage.getItem('genretype');
 }
 
 function UpdateGenreName() {
@@ -626,6 +626,7 @@ function UpdateTrackNumber(){
         document.getElementById("song-author").className = 'song-author';
         songName.innerHTML =songTitle;
         songAuthor.innerHTML = songChannel;
+        genrePlaylist.innerHTML = songChannel;
         songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
     }
     else if (genreIndex == 1){
@@ -639,14 +640,13 @@ function UpdateTrackNumber(){
 
 function previousSong() {
     if (genreIndex == 0){
-        youtubeIndex--;
-        // if (youtubeIndex < 0) {
-        //     youtubeIndex = youtubes.length-1;
-        // }
-        player.previousVideo();
-        // player.loadVideoById(youtubes[youtubeIndex]);
-        localStorage.setItem('track', youtubeIndex);
-        localStorage.getItem('track');
+            if (youtubeIndex > 1) {
+                youtubeIndex--;
+                player.previousVideo();
+                // player.loadVideoById(youtubes[youtubeIndex]);
+                localStorage.setItem('track', youtubeIndex);
+                localStorage.getItem('track');
+            }
     }
     else if (genreIndex == 1){
         widget.prev();
@@ -675,13 +675,12 @@ function previousSong() {
 
 function nextSong() {
     if (genreIndex == 0){
-        youtubeIndex++;
-        // if (youtubeIndex > youtubes.length-1) {
-        //     youtubeIndex = 0;
-        // }
-        player.nextVideo();
-        localStorage.setItem('track', youtubeIndex);
-        localStorage.getItem('track');
+        if (youtubeIndex < videosInPlaylist.length + 1){
+            youtubeIndex++;
+            player.nextVideo();
+            localStorage.setItem('track', youtubeIndex);
+            localStorage.getItem('track');
+            }
         }
     else if (genreIndex == 1){
         widget.next();
