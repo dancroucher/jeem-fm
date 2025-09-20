@@ -954,7 +954,7 @@ function playYoutubePlaylist()
             modestbranding: 1,
             listType:'playlist',
             list: 'PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp',
-            index: youtubeIndex
+            index: parseInt(youtubeIndex, 10)
           },
                   events: {
             'onReady': onPlayerReady,
