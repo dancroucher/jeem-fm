@@ -618,8 +618,8 @@ function UpdateGenreName() {
 
 function UpdateTrackNumber(){
     if (genreIndex == 0){
-        var trackNumber = parseInt(youtubeIndex, 10);
-        //var trackNumber = player.videoCount;
+        //var trackNumber = parseInt(youtubeIndex, 10);
+        var trackNumber = getPlaylistIndex();
         genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
         var songTitle = player.getVideoData().title;
         var songChannel = player.getVideoData().author;
@@ -973,7 +973,6 @@ function onPlayerReady(event) {
     player.setVolume(100);
     event.target.playVideo();
     player.playVideo();
-
     videosInPlaylist = player.getPlaylist();
     //console.log(videosInPlaylist);
 
@@ -985,7 +984,7 @@ function onPlayerReady(event) {
 
 
 
-    UpdateTrackNumber();
+    //UpdateTrackNumber();
         // console.log("playing");
   // UpdateUI();
 
