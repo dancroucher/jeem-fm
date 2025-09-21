@@ -900,13 +900,14 @@ var player;
 
 function playYoutubePlaylist() 
 {
-    if (localStorage.getItem('track') == null){
-        youtubeIndex = 1;//add one to track 1 from track 0  
-    }
-    else
-    {
-        let youtubeIndex = localStorage.getItem('track');
-    }
+    youtubeIndex = 0;
+    // if (localStorage.getItem('track') == null){
+    //     youtubeIndex = 1;//add one to track 1 from track 0  
+    // }
+    // else
+    // {
+    //     let youtubeIndex = localStorage.getItem('track');
+    // }
         player = new YT.Player('bg-youtube', {
           height: '390',
           width: '640',
