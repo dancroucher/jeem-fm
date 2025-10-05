@@ -627,7 +627,9 @@ function UpdateTrackNumber(){
         songName.innerHTML =songTitle;
         songAuthor.innerHTML = songChannel;
         genrePlaylist.innerHTML = songChannel;
-        songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
+        //songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
+        localStorage.setItem('track', youtubeIndex);
+        localStorage.getItem('track');
     }
     // else if (genreIndex == 1){
     //     widget.getSounds(function(currentSound) {
@@ -900,7 +902,6 @@ var player;
 
 function playYoutubePlaylist() 
 {
-    youtubeIndex = 1;
     // if (localStorage.getItem('track') == null){
     //     youtubeIndex = 1;//add one to track 1 from track 0  
     // }
