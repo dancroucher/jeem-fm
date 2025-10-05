@@ -619,7 +619,7 @@ function UpdateGenreName() {
 function UpdateTrackNumber(){
     if (genreIndex == 0){
         //var trackNumber = parseInt(youtubeIndex, 10);
-        var trackNumber = getPlaylistIndex();
+        var trackNumber = youtubeIndex;
         genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
         var songTitle = player.getVideoData().title;
         var songChannel = player.getVideoData().author;
