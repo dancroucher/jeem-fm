@@ -88,6 +88,7 @@ window.onload = function() {
     getVideoBackgrounds();
     getGifBackgrounds(); 
 
+
 }
 
 //landing screen
@@ -911,6 +912,8 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
+        
+        https://www.googleapis.com/youtube/v3/playlists?key=$AIzaSyAHcb5f_EQPn_a-orcVoa8vwS1MtiBmT_E&id=PLT6yxVwBEbi22rbp2Mve4yEJVpSJFcC9g&part=id,snippet&fields=items(id,snippet(title,channelId,channelTitle))
 
         // localStorage.setItem('track', youtubeIndex);
         // localStorage.getItem('track');
