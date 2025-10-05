@@ -135,8 +135,8 @@ function playPause() {
         //playYoutubeVideo();
         playYoutubePlaylist();
         starting = false;
-        UpdateTrackNumber();
-        UpdateUI();
+        // UpdateTrackNumber();
+        // UpdateUI();
     }
 }
 function getYoutubes() {
@@ -974,8 +974,9 @@ function onPlayerReady(event) {
     event.target.playVideo();
     player.playVideo();
     videosInPlaylist = player.getPlaylist();
-    //console.log(videosInPlaylist);
-
+    UpdateTrackNumber();
+    UpdateUI();
+}
 
 
     
@@ -991,7 +992,6 @@ function onPlayerReady(event) {
     // togglePlayButton(player.getPlayerState() !== 5);
   // player.loadVideoById(youtubes[youtubeIndex]);
 
-}
 
 function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.BUFFERING) {
