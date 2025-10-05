@@ -134,9 +134,9 @@ function playPause() {
         loadGenreType();
         //playYoutubeVideo();
         playYoutubePlaylist();
+        starting = false;
         UpdateTrackNumber();
         UpdateUI();
-        starting = false;
     }
 }
 function getYoutubes() {
@@ -648,26 +648,26 @@ function previousSong() {
                 localStorage.getItem('track');
             }
     }
-    else if (genreIndex == 1){
-        widget.prev();
-        widget.seekTo(0);
-        widget.getCurrentSound(function(currentSound) {
-            //document.getElementById("currentTrack").innerHTML = currentSound.title;
-                songName.innerHTML = "<a href='"+currentSound.permalink_url+"'target='_blank'>"+currentSound.title+"</a>";
-                songAuthor.innerHTML = currentSound.user.username;
-        });
-        // if (currentSoundcloudTrack > 1){
-        //     currentSoundcloudTrack--;
-        // }
-        widget.getCurrentSoundIndex(function(currentSoundIndex) {
-            //document.getElementById("currentTrack").innerHTML = currentSound.title;
-            localStorage.setItem('soundcloudtrack', currentSoundIndex);
+    // else if (genreIndex == 1){
+    //     widget.prev();
+    //     widget.seekTo(0);
+    //     widget.getCurrentSound(function(currentSound) {
+    //         //document.getElementById("currentTrack").innerHTML = currentSound.title;
+    //             songName.innerHTML = "<a href='"+currentSound.permalink_url+"'target='_blank'>"+currentSound.title+"</a>";
+    //             songAuthor.innerHTML = currentSound.user.username;
+    //     });
+    //     // if (currentSoundcloudTrack > 1){
+    //     //     currentSoundcloudTrack--;
+    //     // }
+    //     widget.getCurrentSoundIndex(function(currentSoundIndex) {
+    //         //document.getElementById("currentTrack").innerHTML = currentSound.title;
+    //         localStorage.setItem('soundcloudtrack', currentSoundIndex);
             
-            currentSoundcloudTrack = localStorage.getItem('soundcloudtrack');
-            // console.log(localStorage.getItem('soundcloudtrack'));
-        });
+    //         currentSoundcloudTrack = localStorage.getItem('soundcloudtrack');
+    //         // console.log(localStorage.getItem('soundcloudtrack'));
+    //     });
 
-    }
+    // }
     UpdateTrackNumber();
     UpdateUI();
     
@@ -682,25 +682,25 @@ function nextSong() {
             localStorage.getItem('track');
             }
         }
-    else if (genreIndex == 1){
-        widget.next();
-        widget.seekTo(0);
-        widget.getCurrentSound(function(currentSound) {
-            //document.getElementById("currentTrack").innerHTML = currentSound.title;
-            songName.innerHTML = "<a href='"+currentSound.permalink_url+"'target='_blank'>"+currentSound.title+"</a>";
-            songAuthor.innerHTML = currentSound.user.username;
-        });
-        // if (currentSoundcloudTrack < totalSoundcloudTracks){
-        //      currentSoundcloudTrack++;
-        // }
-        widget.getCurrentSoundIndex(function(currentSoundIndex) {
-            //document.getElementById("currentTrack").innerHTML = currentSound.title;
-            localStorage.setItem('soundcloudtrack', currentSoundIndex);
-            localStorage.getItem('soundcloudtrack');
-            currentSoundcloudTrack = localStorage.getItem('soundcloudtrack');
-            // console.log(localStorage.getItem('soundcloudtrack'));
-        });
-    }
+    // else if (genreIndex == 1){
+    //     widget.next();
+    //     widget.seekTo(0);
+    //     widget.getCurrentSound(function(currentSound) {
+    //         //document.getElementById("currentTrack").innerHTML = currentSound.title;
+    //         songName.innerHTML = "<a href='"+currentSound.permalink_url+"'target='_blank'>"+currentSound.title+"</a>";
+    //         songAuthor.innerHTML = currentSound.user.username;
+    //     });
+    //     // if (currentSoundcloudTrack < totalSoundcloudTracks){
+    //     //      currentSoundcloudTrack++;
+    //     // }
+    //     widget.getCurrentSoundIndex(function(currentSoundIndex) {
+    //         //document.getElementById("currentTrack").innerHTML = currentSound.title;
+    //         localStorage.setItem('soundcloudtrack', currentSoundIndex);
+    //         localStorage.getItem('soundcloudtrack');
+    //         currentSoundcloudTrack = localStorage.getItem('soundcloudtrack');
+    //         // console.log(localStorage.getItem('soundcloudtrack'));
+    //     });
+    // }
     UpdateTrackNumber();
     UpdateUI();
     
