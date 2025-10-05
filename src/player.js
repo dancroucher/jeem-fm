@@ -68,6 +68,7 @@ var fadeTime = 3000;
 
 let playing = false;
 let starting = true;
+let playerReady = false;
 
 var iframeElement   = document.querySelector('iframe');
 var iframeElementID = iframeElement.id;
@@ -819,7 +820,7 @@ function formatTime(seconds) {
     return `${min}:${sec}`;
 };
 
-setInterval(updateProgressValue, 500);
+setInterval(updateProgressValue, 200);
 //setInterval(newBackground, 5000);
 
 function doFullscreen() {
@@ -964,6 +965,7 @@ function onPlayerReady(event) {
     event.target.playVideo();
     player.playVideo();
     videosInPlaylist = player.getPlaylist();
+    playerReady = true;
 
 }
 
@@ -992,7 +994,7 @@ function onPlayerStateChange(event) {
 }
 
 function updateProgressValue() {
-    if (starting == false){
+    if (starting == false && playerReady == true){
                 UpdateTrackNumber();
                 UpdateUI();
     }
