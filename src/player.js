@@ -615,7 +615,6 @@ function UpdateGenreName() {
 }
 
 function UpdateTrackNumber(){
-    if (genreIndex == 0){
         //var trackNumber = parseInt(youtubeIndex, 10);
         var trackNumber = youtubeIndex;
         genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
@@ -630,7 +629,7 @@ function UpdateTrackNumber(){
         //songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
-    }
+    
     // else if (genreIndex == 1){
     //     widget.getSounds(function(currentSound) {
     //     totalSoundcloudTracks = currentSound.length;
