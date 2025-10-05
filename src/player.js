@@ -79,7 +79,7 @@ var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/player_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+https://www.googleapis.com/youtube/v3/playlists?key=$AIzaSyAHcb5f_EQPn_a-orcVoa8vwS1MtiBmT_E&id=PLT6yxVwBEbi22rbp2Mve4yEJVpSJFcC9g&part=id,snippet&fields=items(id,snippet(title,channelId,channelTitle))
 window.onload = function() {
     //clearData();
     //getYoutubes();
@@ -913,7 +913,7 @@ function playYoutubePlaylist()
         }
         });
         
-        https://www.googleapis.com/youtube/v3/playlists?key=$AIzaSyAHcb5f_EQPn_a-orcVoa8vwS1MtiBmT_E&id=PLT6yxVwBEbi22rbp2Mve4yEJVpSJFcC9g&part=id,snippet&fields=items(id,snippet(title,channelId,channelTitle))
+        
 
         // localStorage.setItem('track', youtubeIndex);
         // localStorage.getItem('track');
