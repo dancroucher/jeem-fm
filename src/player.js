@@ -629,12 +629,12 @@ function UpdateTrackNumber(){
         genrePlaylist.innerHTML = songChannel;
         songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
     }
-    else if (genreIndex == 1){
-        widget.getSounds(function(currentSound) {
-        totalSoundcloudTracks = currentSound.length;
-        genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(parseInt(currentSoundcloudTrack)+1)+"&nbsp;/&nbsp;"+totalSoundcloudTracks;
-            });
-    }
+    // else if (genreIndex == 1){
+    //     widget.getSounds(function(currentSound) {
+    //     totalSoundcloudTracks = currentSound.length;
+    //     genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(parseInt(currentSoundcloudTrack)+1)+"&nbsp;/&nbsp;"+totalSoundcloudTracks;
+    //         });
+    // }
 }
 
 
@@ -900,7 +900,7 @@ var player;
 
 function playYoutubePlaylist() 
 {
-    youtubeIndex = 0;
+    youtubeIndex = 1;
     // if (localStorage.getItem('track') == null){
     //     youtubeIndex = 1;//add one to track 1 from track 0  
     // }
