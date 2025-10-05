@@ -88,7 +88,7 @@ window.onload = function() {
     getVideoBackgrounds();
     getGifBackgrounds(); 
 
-}
+}//s
 
 //landing screen
 document.addEventListener('DOMContentLoaded', function() {
