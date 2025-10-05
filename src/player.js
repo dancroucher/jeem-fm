@@ -614,22 +614,13 @@ function UpdateTrackNumber(){
         //var playlistName = player.title;
         console.log(player.getVideoData().playlist)
         document.getElementById("song-author").className = 'song-author';
-        songName.innerHTML =songTitle;
+        songName.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+songTitle+"</a>";
         songAuthor.innerHTML = songChannel;
         playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(songChannel);
-        //playlistName.className = 'genre-name youtube';
-        //genrePlaylist.innerHTML = songChannel;
-        //songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
-    
-    // else if (genreIndex == 1){
-    //     widget.getSounds(function(currentSound) {
-    //     totalSoundcloudTracks = currentSound.length;
-    //     genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(parseInt(currentSoundcloudTrack)+1)+"&nbsp;/&nbsp;"+totalSoundcloudTracks;
-    //         });
-    // }
-}//ss
+
+}
 
 
 function previousSong() {
