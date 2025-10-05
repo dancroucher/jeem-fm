@@ -807,15 +807,15 @@ function UpdateUI() {
     //     infoContainer.className = 'info-container fadein';
     // }
     }, 0);
-    setTimeout(function(){ 
-    songContainer.className = 'song-container fadeout';
-    startContainer.className = 'start-container fadeout';
-    titleContainer.className = 'title-container fadeout';
-    soundcloudContainer.className = 'soundcloud-container fadeout';
-    // if (infoContainer.className == 'info-container fadein'){
-    //     infoContainer.className = 'info-container fadeout';
-    // }
-    }, 100);
+    // setTimeout(function(){ 
+    // songContainer.className = 'song-container fadeout';
+    // startContainer.className = 'start-container fadeout';
+    // titleContainer.className = 'title-container fadeout';
+    // soundcloudContainer.className = 'soundcloud-container fadeout';
+    // // if (infoContainer.className == 'info-container fadein'){
+    // //     infoContainer.className = 'info-container fadeout';
+    // // }
+    // }, 100);
 }
 
 
