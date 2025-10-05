@@ -992,9 +992,10 @@ function onPlayerStateChange(event) {
 }
 
 function updateProgressValue() {
-   
+    if (starting == false){
                 UpdateTrackNumber();
                 UpdateUI();
+    }
             // if (player.getVideoData().title == ""){
             //     songTitle = "";
             //     songChannel = "";
