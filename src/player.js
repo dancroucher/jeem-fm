@@ -12,7 +12,7 @@ const gifbackground =  document.getElementById('gif-background');
 
 const videobox = document.getElementById('videoname');
 const song = document.querySelector('#song'); // audio object
-const genreName = document.getElementById('genre-name');
+const playlistName = document.getElementById('genre-name');
 const genreNumber = document.getElementById('genre-number');
 //const genrePlaylist = document.getElementById('genre-playlist');
 const startContainer = document.getElementById('start-container');
@@ -506,8 +506,8 @@ function loadGenreType(){
         genreIndex = myPlaylist;
     }
     if (genreIndex == 0){//Youtube
-        genreName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;YouTube";
-        genreName.className = 'genre-name youtube';
+        playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(videosInPlaylist.length);
+        playlistName.className = 'genre-name youtube';
         //genrePlaylist.className = 'genre-playlist youtubep';
         // youtubeList = youtubeList_all;
         document.getElementById("soundcloud-container").style.display="none";
