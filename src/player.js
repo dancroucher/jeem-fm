@@ -103,26 +103,16 @@ function playPause() {
     if (starting == false){
         if (playing == false) {
             playing = true;
-            if (genreIndex == 0){
-                player.playVideo();
-            }
-            else if (genreIndex == 1){
-                //toggleSoundcloud();
-            }
-            UpdateUI();
+            player.playVideo();
+            //UpdateUI();
             if (starting == false){
                 mp4background.play();
             }
         }
         else if (playing == true) {
             playing = false;
-            if (genreIndex == 0){
-                player.pauseVideo();
-            }
-            else if (genreIndex == 1){
-                toggleSoundcloud();
-            }
-            UpdateUI();
+            player.pauseVideo();
+            //UpdateUI();
             mp4background.pause();
         }
     }
@@ -640,7 +630,6 @@ function UpdateTrackNumber(){
 
 
 function previousSong() {
-    if (genreIndex == 0){
             if (youtubeIndex > 1) {
                 youtubeIndex--;
                 player.previousVideo();
@@ -648,7 +637,7 @@ function previousSong() {
                 localStorage.setItem('track', youtubeIndex);
                 localStorage.getItem('track');
             }
-    }
+    
     // else if (genreIndex == 1){
     //     widget.prev();
     //     widget.seekTo(0);
@@ -675,14 +664,13 @@ function previousSong() {
 }
 
 function nextSong() {
-    if (genreIndex == 0){
         if (youtubeIndex < videosInPlaylist.length){
             youtubeIndex++;
             player.nextVideo();
             localStorage.setItem('track', youtubeIndex);
             localStorage.getItem('track');
             }
-        }
+        
     // else if (genreIndex == 1){
     //     widget.next();
     //     widget.seekTo(0);
@@ -1005,7 +993,6 @@ function onPlayerStateChange(event) {
 
 function updateProgressValue() {
    
-        if (genreIndex == 0){
                 UpdateTrackNumber();
                 UpdateUI();
             // if (player.getVideoData().title == ""){
@@ -1023,7 +1010,7 @@ function updateProgressValue() {
             // songAuthor.innerHTML = songChannel;
             // genrePlaylist.innerHTML = songChannel;
 
-        }
+        
 
 
 };  
