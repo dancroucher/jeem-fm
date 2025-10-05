@@ -958,6 +958,8 @@ function playYoutubeVideo() {
             'onStateChange': onPlayerStateChange
         }
     });
+    UpdateTrackNumber();
+    UpdateUI();
 }
 
 function togglePlayButton(play) {
@@ -975,8 +977,7 @@ function onPlayerReady(event) {
     event.target.playVideo();
     player.playVideo();
     videosInPlaylist = player.getPlaylist();
-    UpdateTrackNumber();
-    UpdateUI();
+
 }
 
 
@@ -1006,6 +1007,8 @@ function onPlayerStateChange(event) {
 function updateProgressValue() {
    
         if (genreIndex == 0){
+                UpdateTrackNumber();
+                UpdateUI();
             // if (player.getVideoData().title == ""){
             //     songTitle = "";
             //     songChannel = "";
@@ -1022,9 +1025,7 @@ function updateProgressValue() {
             // genrePlaylist.innerHTML = songChannel;
 
         }
-        else if (genreIndex ==1){
-            // document.getElementById("song-author").className = 'song-author';
-        }
+
 
 };  
 
