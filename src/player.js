@@ -131,7 +131,7 @@ function playPause() {
         document.getElementById("start-container").style.display="none";
         document.getElementById("song-container").style.display="block";
         loadBackgroundType();
-        loadGenreType();
+        //loadGenreType();
         //playYoutubeVideo();
         playYoutubePlaylist();
         starting = false;
@@ -498,23 +498,19 @@ function UpdateBackgroundName (){
 }
 
 function loadGenreType(){
-    if (localStorage.getItem('playlist') == null){
-      genreIndex = 0;  
-    }
-    else{
-        let myPlaylist = localStorage.getItem('playlist');
-        genreIndex = myPlaylist;
-    }
-    if (genreIndex == 0){//Youtube
-        playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(videosInPlaylist.length);
-        playlistName.className = 'genre-name youtube';
-        //genrePlaylist.className = 'genre-playlist youtubep';
-        // youtubeList = youtubeList_all;
-        document.getElementById("soundcloud-container").style.display="none";
-        //changeBackground();
-        UpdateUI();
-        //getYoutubes();
-    }
+    // if (localStorage.getItem('playlist') == null){
+    //   genreIndex = 0;  
+    // }
+    // else{
+    //     let myPlaylist = localStorage.getItem('playlist');
+    //     genreIndex = myPlaylist;
+    // }
+    // if (genreIndex == 0){//Youtube
+
+    //     //changeBackground();
+    //     UpdateUI();
+    //     //getYoutubes();
+    // }
     // else if (genreIndex == 1){//synthwave
     //     youtubeList = youtubeList_synth;
     //     document.getElementById("videoentry").style.display="none";
@@ -544,8 +540,8 @@ function loadGenreType(){
     //     UpdateUI();
     //     UpdateTrackNumber();
     // }
-    localStorage.setItem('genretype', genreIndex);
-    localStorage.getItem('genretype');   
+    // localStorage.setItem('genretype', genreIndex);
+    // localStorage.getItem('genretype');   
 }
 
 function changeGenreType() {
@@ -628,6 +624,8 @@ function UpdateTrackNumber(){
         document.getElementById("song-author").className = 'song-author';
         songName.innerHTML =songTitle;
         songAuthor.innerHTML = songChannel;
+        playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(videosInPlaylist.length);
+        //playlistName.className = 'genre-name youtube';
         //genrePlaylist.innerHTML = songChannel;
         //songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
         localStorage.setItem('track', youtubeIndex);
