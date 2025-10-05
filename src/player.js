@@ -14,7 +14,7 @@ const videobox = document.getElementById('videoname');
 const song = document.querySelector('#song'); // audio object
 const genreName = document.getElementById('genre-name');
 const genreNumber = document.getElementById('genre-number');
-const genrePlaylist = document.getElementById('genre-playlist');
+//const genrePlaylist = document.getElementById('genre-playlist');
 const startContainer = document.getElementById('start-container');
 const start = document.getElementById('start');
 const songContainer = document.getElementById('song-container');
@@ -264,7 +264,7 @@ document.body.onkeyup = function(e){
             doPopup();
         }
         else if(e.keyCode == 80){//P keypress
-            changeGenreType();
+            changePlaylist();
         }
         else if(e.keyCode == 187){//= key
             clearData();
@@ -508,7 +508,7 @@ function loadGenreType(){
     if (genreIndex == 0){//Youtube
         genreName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;YouTube";
         genreName.className = 'genre-name youtube';
-        genrePlaylist.className = 'genre-playlist youtubep';
+        //genrePlaylist.className = 'genre-playlist youtubep';
         // youtubeList = youtubeList_all;
         document.getElementById("soundcloud-container").style.display="none";
         //changeBackground();
@@ -530,20 +530,20 @@ function loadGenreType(){
     //     document.getElementById("videoentry").style.display="none";
     //     document.getElementById("genre-number").style.display="inline-block";
     // }
-    else if (genreIndex == 1){//Soundcloud
-        genreName.innerHTML = "<i class='fab fa-soundcloud'></i>&nbsp;Soundcloud";
-        //youtubeList = youtubeList_none;
-        genreName.className = 'genre-name sc';
-        genrePlaylist.className = 'genre-playlist scp';
-        // document.getElementById("genre-number").style.display="inline-block";
-        document.getElementById("soundcloud-container").style.display="none";
-        //changeBackground();
-        //skipSoundcloud();
-        //player.pauseVideo();
+    // else if (genreIndex == 1){//Soundcloud
+    //     genreName.innerHTML = "<i class='fab fa-soundcloud'></i>&nbsp;Soundcloud";
+    //     //youtubeList = youtubeList_none;
+    //     genreName.className = 'genre-name sc';
+    //     genrePlaylist.className = 'genre-playlist scp';
+    //     // document.getElementById("genre-number").style.display="inline-block";
+    //     document.getElementById("soundcloud-container").style.display="none";
+    //     //changeBackground();
+    //     //skipSoundcloud();
+    //     //player.pauseVideo();
         
-        UpdateUI();
-        UpdateTrackNumber();
-    }
+    //     UpdateUI();
+    //     UpdateTrackNumber();
+    // }
     localStorage.setItem('genretype', genreIndex);
     localStorage.getItem('genretype');   
 }
@@ -597,6 +597,8 @@ function changeGenreType() {
     // localStorage.getItem('genretype');
 }
 
+function changePlaylist(){}
+
 function UpdateGenreName() {
     // if (genreIndex == 0){//youtube
     //     genreName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;YouTube";
@@ -626,7 +628,7 @@ function UpdateTrackNumber(){
         document.getElementById("song-author").className = 'song-author';
         songName.innerHTML =songTitle;
         songAuthor.innerHTML = songChannel;
-        genrePlaylist.innerHTML = songChannel;
+        //genrePlaylist.innerHTML = songChannel;
         //songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
