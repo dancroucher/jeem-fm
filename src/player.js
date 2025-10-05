@@ -88,7 +88,7 @@ window.onload = function() {
     getVideoBackgrounds();
     getGifBackgrounds(); 
 
-}//s
+}
 
 //landing screen
 document.addEventListener('DOMContentLoaded', function() {
@@ -611,11 +611,12 @@ function UpdateTrackNumber(){
         genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
         var songTitle = player.getVideoData().title;
         var songChannel = player.getVideoData().author;
-        var playlistName = player.title;
+        //var playlistName = player.title;
+        console.log(player.getVideoData().playlist)
         document.getElementById("song-author").className = 'song-author';
         songName.innerHTML =songTitle;
         songAuthor.innerHTML = songChannel;
-        playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(playlistName);
+        playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(songChannel);
         //playlistName.className = 'genre-name youtube';
         //genrePlaylist.innerHTML = songChannel;
         //songAuthor.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+player.getVideoData().author+"</a>";
