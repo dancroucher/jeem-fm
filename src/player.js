@@ -103,13 +103,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 0);
 }, false);
 
+setInterval(updateProgressValue, 1000);
+setInterval(newBackground, 20000);
+
 function playPause() {
     if (starting == false){
         if (playing == false) {
             playing = true;
             player.playVideo();
-            UpdateUI();
-            UpdateTrackNumber();
             if (starting == false){
                 mp4background.play();
             }
@@ -602,8 +603,7 @@ function formatTime(seconds) {
     return `${min}:${sec}`;
 };
 
-setInterval(updateProgressValue, 200);
-setInterval(newBackground, 5000);
+
 
 function doFullscreen() {
 if (fullscreenbool == false){
@@ -764,8 +764,8 @@ function onPlayerStateChange(event) {
 
 function updateProgressValue() {
     if (starting == false && playerReady == true){
-                //UpdateTrackNumber();
-                //UpdateUI();
+        UpdateTrackNumber();
+        UpdateUI();
     }
 };  
 
