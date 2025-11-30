@@ -512,73 +512,29 @@ function UpdateTrackNumber(){
         playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(songChannel);
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
-
 }
 
 function previousSong() {
-            if (youtubeIndex > 1) {
-                youtubeIndex--;
-                player.previousVideo();
-                // player.loadVideoById(youtubes[youtubeIndex]);
-                localStorage.setItem('track', youtubeIndex);
-                localStorage.getItem('track');
-            }
-    
-    // else if (genreIndex == 1){
-    //     widget.prev();
-    //     widget.seekTo(0);
-    //     widget.getCurrentSound(function(currentSound) {
-    //         //document.getElementById("currentTrack").innerHTML = currentSound.title;
-    //             songName.innerHTML = "<a href='"+currentSound.permalink_url+"'target='_blank'>"+currentSound.title+"</a>";
-    //             songAuthor.innerHTML = currentSound.user.username;
-    //     });
-    //     // if (currentSoundcloudTrack > 1){
-    //     //     currentSoundcloudTrack--;
-    //     // }
-    //     widget.getCurrentSoundIndex(function(currentSoundIndex) {
-    //         //document.getElementById("currentTrack").innerHTML = currentSound.title;
-    //         localStorage.setItem('soundcloudtrack', currentSoundIndex);
-            
-    //         currentSoundcloudTrack = localStorage.getItem('soundcloudtrack');
-    //         // console.log(localStorage.getItem('soundcloudtrack'));
-    //     });
-
-    // }
+    if (youtubeIndex > 1) {
+        youtubeIndex--;
+        player.previousVideo();
+        // player.loadVideoById(youtubes[youtubeIndex]);
+        localStorage.setItem('track', youtubeIndex);
+        localStorage.getItem('track');
+    }
     UpdateTrackNumber();
     UpdateUI();
-    
 }
 
 function nextSong() {
-        if (youtubeIndex < videosInPlaylist.length){
-            youtubeIndex++;
-            player.nextVideo();
-            localStorage.setItem('track', youtubeIndex);
-            localStorage.getItem('track');
-            }
-        
-    // else if (genreIndex == 1){
-    //     widget.next();
-    //     widget.seekTo(0);
-    //     widget.getCurrentSound(function(currentSound) {
-    //         //document.getElementById("currentTrack").innerHTML = currentSound.title;
-    //         songName.innerHTML = "<a href='"+currentSound.permalink_url+"'target='_blank'>"+currentSound.title+"</a>";
-    //         songAuthor.innerHTML = currentSound.user.username;
-    //     });
-    //     // if (currentSoundcloudTrack < totalSoundcloudTracks){
-    //     //      currentSoundcloudTrack++;
-    //     // }
-    //     widget.getCurrentSoundIndex(function(currentSoundIndex) {
-    //         //document.getElementById("currentTrack").innerHTML = currentSound.title;
-    //         localStorage.setItem('soundcloudtrack', currentSoundIndex);
-    //         localStorage.getItem('soundcloudtrack');
-    //         currentSoundcloudTrack = localStorage.getItem('soundcloudtrack');
-    //         // console.log(localStorage.getItem('soundcloudtrack'));
-    //     });
-    // }
+    if (youtubeIndex < videosInPlaylist.length){
+        youtubeIndex++;
+        player.nextVideo();
+        localStorage.setItem('track', youtubeIndex);
+        localStorage.getItem('track');
+    }
     UpdateTrackNumber();
     UpdateUI();
-    
 }
 
 
@@ -726,7 +682,7 @@ function loadAuto () {
     if (localStorage.getItem('auto') == null){
       auto = 0;  
     }
-    if (localStorage.getItem('auto') == 1)
+    else if (localStorage.getItem('auto') == 1)
         {
             autoTypeName = "(auto)";
             backgroundAuto.style.display="inline-block";
@@ -752,6 +708,8 @@ if (auto == false){
         UpdateBackgroundName();
         auto = true;
         localStorage.setItem('auto', '1');
+        localStorage.getItem('auto');
+  
 }
 
 else if (auto == true){
@@ -761,8 +719,10 @@ else if (auto == true){
         UpdateBackgroundName();
         auto = false;
         localStorage.setItem('auto', '0');
+        localStorage.getItem('auto');
     }
 }
+
 
 
 
