@@ -218,7 +218,7 @@ a:active {
     padding-left: 8px;
     padding-right: 8px;
     background-color: rgba(0, 0, 0, 0.3);
-    width: 10%;
+    width: fit-content;
     text-align: center;
 
   }
@@ -365,7 +365,7 @@ a:active {
       padding: 0px 32px 32px 32px;
       position: absolute;
       bottom: 0;
-      width: 1000px;
+      width: 95%;
   }
 
   .start {

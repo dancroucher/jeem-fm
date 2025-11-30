@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
     start.innerHTML = "Click / tap anywhere to start";
-    backgroundAuto.style.display="none";
+    //backgroundAuto.style.display="none";
 
     }, 0);
 }, false);
@@ -703,7 +703,7 @@ function formatTime(seconds) {
 };
 
 setInterval(updateProgressValue, 200);
-//setInterval(newBackground, 5000);
+setInterval(newBackground, 5000);
 
 function doFullscreen() {
 if (fullscreenbool == false){
@@ -737,7 +737,7 @@ function loadAuto () {
     if (localStorage.getItem('auto') != null){
         if (localStorage.getItem('auto') == 1)
         {
-            autoTypeName = "Autochange";
+            autoTypeName = "Auto";
             backgroundAuto.style.display="inline-block";
             UpdateUI();
             UpdateBackgroundName();
@@ -756,7 +756,7 @@ if (auto == false){
         localStorage.setItem('auto', '1');
 }
 
-else{
+else if (auto == true){
         autoTypeName = "Manual";
         backgroundAuto.style.display="inline-block";
         UpdateUI();
