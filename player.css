@@ -192,7 +192,8 @@ a:active {
   }
 
   .song-author:hover{
-
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
   }
 
   .background-name {

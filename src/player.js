@@ -41,7 +41,6 @@ var auto = false;
 var autoTypeName;
 var infoOpen = true;
 var cursor = true;
-var autoTypeName;
 var youtubeList_all = "assets/lists/all.txt";
 var soundcloudList = "assets/lists/sc.txt";
 var youtubeList_lofi = "assets/lists/lofi.txt";
@@ -200,16 +199,16 @@ function getSoundcloud() {
     xmlhttp.send();
 }
 
-function skipSoundcloud(){
-    widget.toggle();
-    widget.skip(currentSoundcloudTrack);
-    widget.getCurrentSound(function(currentSound) {
-        songName.innerHTML = "<a href='"+currentSound.permalink_url+"'target='_blank'>"+currentSound.title+"</a>";
-        songAuthor.innerHTML = currentSound.user.username;
-        //genrePlaylist.innerHTML = currentSound.collection.track_count;
+// function skipSoundcloud(){
+//     widget.toggle();
+//     widget.skip(currentSoundcloudTrack);
+//     widget.getCurrentSound(function(currentSound) {
+//         songName.innerHTML = "<a href='"+currentSound.permalink_url+"'target='_blank'>"+currentSound.title+"</a>";
+//         songAuthor.innerHTML = currentSound.user.username;
+//         //genrePlaylist.innerHTML = currentSound.collection.track_count;
 
-    });
-}
+//     });
+// }
 
 function toggleSoundcloud(){
     widget.toggle();
@@ -248,7 +247,7 @@ document.body.onkeyup = function(e){
             changeBackground();
         }
         else if(e.keyCode == 65){//A key
-            //toggleAuto();
+            toggleAuto();
         }
         else if(e.keyCode == 70){//f key
             doFullscreen();
@@ -506,7 +505,7 @@ function UpdateTrackNumber(){
         console.log(player.getVideoData().playlist)
         document.getElementById("song-author").className = 'song-author';
         songName.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+songTitle+"</a>";
-        songAuthor.innerHTML = songChannel;
+        songName.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+songChannel+"</a>";
         playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(songChannel);
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
@@ -749,7 +748,7 @@ function loadAuto () {
 
 function toggleAuto() {
 if (auto == false){
-        autoTypeName = "Autochange";
+        autoTypeName = "Auto";
         backgroundAuto.style.display="inline-block";
         UpdateUI();
         UpdateBackgroundName();
@@ -758,8 +757,8 @@ if (auto == false){
 }
 
 else{
-        autoTypeName = "&nbsp;";
-        backgroundAuto.style.display="none";
+        autoTypeName = "Manual";
+        backgroundAuto.style.display="inline-block";
         UpdateUI();
         UpdateBackgroundName();
         auto = false;

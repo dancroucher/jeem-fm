@@ -16,7 +16,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+        <!-- <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script> -->
         <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
     </head>
     <body >
@@ -43,7 +43,7 @@
                     <div class ="genre-number" id="genre-number-next" onclick='nextSong()'></div>
                     <div class ="background-type" id="background-type" onclick='changeBackgroundType()'></div>
                     <div class ="background-name" id="background-name" onclick='changeBackground()'></div>
-                    <div class ="background-auto" id="background-auto"></div>
+                    <div class ="background-auto" id="background-auto" onclick='toggleAuto()'></div>
                     <div class ="info-button" onclick="doPopup()"><i class="fas fa-info-circle"></i></div>
                 </div>
             </div>
@@ -52,11 +52,11 @@
                     <div class="start" id="start"><i class="fas fa-spinner fa-pulse"></i></div>
                 </div>
             </div>
-            <div class="soundcloud-container fadeout" id="soundcloud-container" style="display: none;">
+            <!-- <div class="soundcloud-container fadeout" id="soundcloud-container" style="display: none;">
                 <iframe id="bg-sc" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src=""></iframe>
                 <br>
 
-            </div>
+            </div> -->
             <div class="popup">
                 <span class="popuptext" id="myPopup" onclick='doPopup()'>
       _                       ___        
