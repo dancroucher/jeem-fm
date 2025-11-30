@@ -113,6 +113,7 @@ function playPause() {
             player.playVideo();
             if (starting == false){
                 mp4background.play();
+                UpdateTrackNumber();
             }
         }
         else if (playing == true) {
@@ -128,6 +129,7 @@ function playPause() {
         document.getElementById("song-container").style.display="block";
         loadBackgroundType();
         loadAuto();
+
         //loadGenreType();
         //playYoutubeVideo();
         playYoutubePlaylist();
@@ -764,7 +766,7 @@ function onPlayerStateChange(event) {
 
 function updateProgressValue() {
     if (starting == false && playerReady == true){
-        UpdateTrackNumber();
+
         UpdateUI();
     }
 };  
