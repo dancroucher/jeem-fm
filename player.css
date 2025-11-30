@@ -30,10 +30,6 @@
 .context-menu {cursor: context-menu;}
 
 
-
-html {
-}
-
 body {
   margin: 0;
   background: #000000;
@@ -153,9 +149,6 @@ a:active {
 }
 
 
-  .title:hover {
-
-  }
 
   .song-name {
     font-size: 1.25em;
@@ -420,14 +413,12 @@ a:active {
 
   .boxtitle {
     width:  100%;
-    display: inline-block;
     float: left;
   }
 
   .boxsubtitle {
     width:  65%;
     opacity:  0.75;
-    display: inline-block;
     float: right;
     text-align: right;
     color: #EFBC1D; 
@@ -533,9 +524,6 @@ input[type=text], select {
 
 }
 
-input[type=text]:focus {
-/*  border: 0.13em solid rgba(255,255,255,1);
-*/  }
 
 input[type=submit] {
 /*hide submit button */
@@ -611,18 +599,6 @@ input[type=submit] {
 
 }
 
-/* Popup arrow */
-.popup .popuptext::after {
-/*  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;*/
-}
-
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup .show {
   visibility: visible;
@@ -641,7 +617,6 @@ input[type=submit] {
   to {opacity:1 ;}
 }
 
-//*FADE */
 
 @keyframes fadeout{
     0% { opacity:1; }
@@ -954,92 +929,3 @@ background-color: rgba(0, 0, 0, 0.6 );
   border-radius: 10px;
   background: #111;
 }
-
-/*@keyframes rotate180{
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(180deg);
-  }
-}*/
-
-/*.popup {
-  display: inline-block;
-  cursor: context-menu;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.popupbright {
-  display: inline-block;
-  cursor: context-menu;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  opacity: 0.75;
-}*/
-
-/*.popup img {
-      -webkit-animation: 4s ease 0s normal forwards 1 fadeout;
-    animation: 4s ease 0s normal forwards 1 fadeout;
-}*/
-
-/* The actual popup */
-/*.popup .popuptext {
-
-  visibility: hidden;
-  width: 350px;
-  height: fit-content;
-  background-color: black;
-  color: #fff;
-  text-align: left;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #fff;
-  padding: 12px 18px 12px 12px;
-  line-height: 1.8;
-  position: absolute; 
-  z-index: 2;
-  top: -550%;
-  left: 0%;
-}*/
-/*.popupbright .popuptext {
-
-  visibility: hidden;
-  width: 350px;
-  height: fit-content;
-  background-color: white;
-  color: #161616;
-  text-align: left;
-  border-radius: 0px;
-  padding: 12px 18px;
-  line-height: 1.8;
-  position: absolute; 
-  z-index: 2;
-  top: -450%;
-  left: 0%;
-}*/
-
-/* Popup arrow 
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 5%;
-  border-width: 6px;
-  border-style: solid;
-  border-color: white transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-/*.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeInPop 0.5s;
-  animation: fadeInPop 0.5s;
-}*/
-
- 
