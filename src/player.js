@@ -82,6 +82,7 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 window.onload = function() {
     clearData();
+
     //getYoutubes();
     //getSoundcloud();    
     //playYoutubeVideo();
@@ -123,6 +124,7 @@ function playPause() {
         document.getElementById("start-container").style.display="none";
         document.getElementById("song-container").style.display="block";
         loadBackgroundType();
+        loadAuto();
         //loadGenreType();
         //playYoutubeVideo();
         playYoutubePlaylist();
@@ -737,7 +739,15 @@ function loadAuto () {
     if (localStorage.getItem('auto') != null){
         if (localStorage.getItem('auto') == 1)
         {
-            autoTypeName = "Auto";
+            autoTypeName = "(auto)";
+            backgroundAuto.style.display="inline-block";
+            UpdateUI();
+            UpdateBackgroundName();
+            auto = true;
+        }
+        else if (localStorage.getItem('auto') == 1)
+        {
+            autoTypeName = "(manual)";
             backgroundAuto.style.display="inline-block";
             UpdateUI();
             UpdateBackgroundName();
@@ -748,7 +758,7 @@ function loadAuto () {
 
 function toggleAuto() {
 if (auto == false){
-        autoTypeName = "Auto";
+        autoTypeName = "(auto)";
         backgroundAuto.style.display="inline-block";
         UpdateUI();
         UpdateBackgroundName();
@@ -757,7 +767,7 @@ if (auto == false){
 }
 
 else if (auto == true){
-        autoTypeName = "Manual";
+        autoTypeName = "(manual)";
         backgroundAuto.style.display="inline-block";
         UpdateUI();
         UpdateBackgroundName();
