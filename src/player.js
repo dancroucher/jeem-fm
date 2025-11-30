@@ -790,8 +790,6 @@ function doVideoName(){
         player.loadVideoById(videoNameClean);
         //force YT
         bgTypeIndex=3;
-        //backType = backtypes[bgTypeIndex];
-        // info.innerHTML = "<span class='butt' onclick='changeBackgroundType()'>youtube</span>";
         document.getElementById("bg-start").style.display="none";
         document.getElementById("bg-gif").style.display="none";
         document.getElementById("bg-mp4").style.display="none";
