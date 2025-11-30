@@ -247,7 +247,7 @@ document.body.onkeyup = function(e){
             changeBackground();
         }
         else if(e.keyCode == 65){//A key
-            toggleAuto();
+            //toggleAuto();
         }
         else if(e.keyCode == 70){//f key
             doFullscreen();
