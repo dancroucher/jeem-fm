@@ -228,7 +228,7 @@ a:active {
   }
     .info-button {
     color:  rgba(250,249,246,0.9);
-    display: inline-block;
+    float: right;
     clear: both;
     align-content: right;
     line-height: 1.5em;
