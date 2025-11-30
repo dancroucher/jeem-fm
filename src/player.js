@@ -12,7 +12,7 @@ const gifbackground =  document.getElementById('gif-background');
 
 const videobox = document.getElementById('videoname');
 const song = document.querySelector('#song'); // audio object
-const playlistName = document.getElementById('genre-name');
+//const playlistName = document.getElementById('genre-name');
 const genreNumber = document.getElementById('genre-number');
 const genreNumberNext = document.getElementById('genre-number-next');
 const genreNumberPrev = document.getElementById('genre-number-prev');
@@ -39,6 +39,7 @@ var elem = document.documentElement;
 var fullscreenbool = false;
 var auto = false;
 var autoTypeName;
+var playlistName;
 var infoOpen = true;
 var cursor = true;
 var youtubeList_all = "assets/lists/all.txt";
@@ -782,13 +783,8 @@ var player;
 
 function playYoutubePlaylist() 
 {
-    // if (localStorage.getItem('track') == null){
-    //     youtubeIndex = 1;//add one to track 1 from track 0  
-    // }
-    // else
-    // {
-    //     let youtubeIndex = localStorage.getItem('track');
-    // }
+        playlistName = "Dan is great";
+        title.innerHTML ="// jeem-fm&nbsp//&nbsp" + (playlistName);
         player = new YT.Player('bg-youtube', {
           height: '390',
           width: '640',
@@ -811,8 +807,6 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
-        
-        
 
         // localStorage.setItem('track', youtubeIndex);
         // localStorage.getItem('track');
