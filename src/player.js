@@ -108,7 +108,8 @@ function playPause() {
         if (playing == false) {
             playing = true;
             player.playVideo();
-            //UpdateUI();
+            UpdateUI();
+            UpdateTrackNumber();
             if (starting == false){
                 mp4background.play();
             }
@@ -129,8 +130,7 @@ function playPause() {
         //loadGenreType();
         //playYoutubeVideo();
         playYoutubePlaylist();
-        UpdateUI();
-        UpdateTrackNumber();
+
         loadAuto();
         starting = false;
     }
@@ -324,7 +324,7 @@ function infoSlide() {
 
 function loadBackgroundType() {
     if (localStorage.getItem('backtype') == null){
-      bgTypeIndex = 1;  
+      bgTypeIndex = 1;
     }
     else{
         let myBackType = localStorage.getItem('backtype');
@@ -634,14 +634,15 @@ else{
 
 function loadAuto () {
     if (localStorage.getItem('auto') == null){
-      auto = 0;  
+      auto = false;
+      autoTypeName = "(manual)";
     }
     else if (localStorage.getItem('auto') == 1)
         {
             autoTypeName = "(auto)";
             backgroundAuto.style.display="inline-block";
             UpdateUI();
-            UpdateBackgroundName();
+            //UpdateBackgroundName();
             auto = true;
     }
     else if (localStorage.getItem('auto') == 0)
@@ -649,7 +650,7 @@ function loadAuto () {
             autoTypeName = "(manual)";
             backgroundAuto.style.display="inline-block";
             UpdateUI();
-            UpdateBackgroundName();
+            //UpdateBackgroundName();
             auto = false;
         }
 }
@@ -684,7 +685,7 @@ var player;
 
 function playYoutubePlaylist() 
 {
-        playlistName = "Dan is great";
+        playlistName = "My Playlist";
         title.innerHTML ="// jeem-fm&nbsp//&nbsp" + (playlistName);
         player = new YT.Player('bg-youtube', {
           height: '390',
@@ -738,9 +739,6 @@ function playYoutubeVideo() {
     UpdateUI();
 }
 
-function togglePlayButton(play) {
-    // document.getElementById("youtube-icon").src = play ? "https://i.imgur.com/IDzX9gL.png" : "https://i.imgur.com/quyUPXN.png";
-}
 
 function doPopup() {
   var popup = document.getElementById("myPopup");
