@@ -129,6 +129,9 @@ function playPause() {
         //loadGenreType();
         //playYoutubeVideo();
         playYoutubePlaylist();
+        UpdateUI();
+        UpdateTrackNumber();
+        loadAuto();
         starting = false;
     }
 }
