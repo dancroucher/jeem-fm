@@ -793,7 +793,8 @@ function playYoutubePlaylist()
             iv_load_policy: 3,
             modestbranding: 1,
             listType:'playlist',
-            list: 'PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp',
+            list: 'PLnNfLjvDzk1CTMebS0ADSyK91Fby8vFgf',
+            // list: 'PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp',//blogwave
             index: youtubeIndex
           },
                   events: {
