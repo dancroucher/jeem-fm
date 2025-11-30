@@ -581,19 +581,6 @@ function nextSong() {
     
 }
 
-// function randomSong(){
-//     var currentIndex = youtubeIndex;
-//     youtubeIndexMax = youtubes.length-1;
-//     var n = Math.floor(Math.random() * youtubeIndexMax);
-//     if (n >= currentIndex) n++;
-//     youtubeIndex = n;
-//     player.loadVideoById(youtubes[youtubeIndex]);
-//     localStorage.setItem('track', youtubeIndex);
-//     localStorage.getItem('track');
-//     UpdateTrackNumber();
-//     changeBackground();
-//     UpdateUI(); 
-// }
 
 function clearData() {
     localStorage.clear();
@@ -736,25 +723,25 @@ else{
 }
 
 function loadAuto () {
-
-    if (localStorage.getItem('auto') != null){
-        if (localStorage.getItem('auto') == 1)
+    if (localStorage.getItem('auto') == null){
+      auto = 0;  
+    }
+    if (localStorage.getItem('auto') == 1)
         {
             autoTypeName = "(auto)";
             backgroundAuto.style.display="inline-block";
             UpdateUI();
             UpdateBackgroundName();
             auto = true;
-        }
-        else if (localStorage.getItem('auto') == 1)
+    }
+    else if (localStorage.getItem('auto') == 0)
         {
             autoTypeName = "(manual)";
             backgroundAuto.style.display="inline-block";
             UpdateUI();
             UpdateBackgroundName();
-            auto = true;
+            auto = false;
         }
-    }
 }
 
 function toggleAuto() {
