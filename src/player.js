@@ -14,6 +14,8 @@ const videobox = document.getElementById('videoname');
 const song = document.querySelector('#song'); // audio object
 const playlistName = document.getElementById('genre-name');
 const genreNumber = document.getElementById('genre-number');
+const genreNumberNext = document.getElementById('genre-number-next');
+const genreNumberPrev = document.getElementById('genre-number-prev');
 //const genrePlaylist = document.getElementById('genre-playlist');
 const startContainer = document.getElementById('start-container');
 const start = document.getElementById('start');
@@ -488,127 +490,16 @@ function UpdateBackgroundName (){
     }
 }
 
-function loadGenreType(){
-    // if (localStorage.getItem('playlist') == null){
-    //   genreIndex = 0;  
-    // }
-    // else{
-    //     let myPlaylist = localStorage.getItem('playlist');
-    //     genreIndex = myPlaylist;
-    // }
-    // if (genreIndex == 0){//Youtube
+function changePlaylist(){
 
-    //     //changeBackground();
-    //     UpdateUI();
-    //     //getYoutubes();
-    // }
-    // else if (genreIndex == 1){//synthwave
-    //     youtubeList = youtubeList_synth;
-    //     document.getElementById("videoentry").style.display="none";
-    //     document.getElementById("genre-number").style.display="inline-block";
-    // }
-    // else if (genreIndex == 2){//game
-    //     youtubeList = youtubeList_game;
-    //     document.getElementById("videoentry").style.display="none";
-    //     document.getElementById("genre-number").style.display="inline-block";
-    // }
-    // else if (genreIndex == 3){//techno and drum and bass
-    //     youtubeList = youtubeList_tdnb;
-    //     document.getElementById("videoentry").style.display="none";
-    //     document.getElementById("genre-number").style.display="inline-block";
-    // }
-    // else if (genreIndex == 1){//Soundcloud
-    //     genreName.innerHTML = "<i class='fab fa-soundcloud'></i>&nbsp;Soundcloud";
-    //     //youtubeList = youtubeList_none;
-    //     genreName.className = 'genre-name sc';
-    //     genrePlaylist.className = 'genre-playlist scp';
-    //     // document.getElementById("genre-number").style.display="inline-block";
-    //     document.getElementById("soundcloud-container").style.display="none";
-    //     //changeBackground();
-    //     //skipSoundcloud();
-    //     //player.pauseVideo();
-        
-    //     UpdateUI();
-    //     UpdateTrackNumber();
-    // }
-    // localStorage.setItem('genretype', genreIndex);
-    // localStorage.getItem('genretype');   
-}
-
-function changeGenreType() {
-    // genreIndex++;
-    // if (genreIndex > genretypes.length-1) {
-    //     genreIndex = 0;
-    // };
-    // if (genreIndex == 0){//Youtube
-    //     genreName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;YouTube";
-    //     genreName.className = 'genre-name youtube';
-    //     genrePlaylist.className = 'genre-playlist youtubep';
-    //     youtubeList = youtubeList_all;
-    //     document.getElementById("soundcloud-container").style.display="none";
-    //     changeBackground();
-    //     toggleSoundcloud();
-    //     UpdateUI();
-    //     getYoutubes();
-    // }
-    // // else if (genreIndex == 1){//synthwave
-    // //     youtubeList = youtubeList_synth;
-    // //     console.log(localStorage.getItem('playlist'));
-    // //     document.getElementById("videoentry").style.display="none";
-    // //     document.getElementById("genre-number").style.display="inline-block";
-    // // }
-    // // else if (genreIndex == 2){//game
-    // //     youtubeList = youtubeList_game;
-    // //     document.getElementById("videoentry").style.display="none";
-    // //     document.getElementById("genre-number").style.display="inline-block";
-    // // }
-    // // else if (genreIndex == 3){//techno and drum and bass
-    // //     youtubeList = youtubeList_tdnb;
-    // //     document.getElementById("videoentry").style.display="none";
-    // //     document.getElementById("genre-number").style.display="inline-block";
-    // // }
-    // else if (genreIndex == 1){//Soundcloud
-    //     genreName.innerHTML = "<i class='fab fa-soundcloud'></i>&nbsp;Soundcloud";
-    //     youtubeList = youtubeList_none;
-    //     genreName.className = 'genre-name sc';
-    //     genrePlaylist.className = 'genre-playlist scp';
-    //     // document.getElementById("genre-number").style.display="inline-block";
-    //     document.getElementById("soundcloud-container").style.display="none";
-    //     changeBackground();
-    //     toggleSoundcloud();
-    //     //player.pauseVideo();
-    //     UpdateUI();
-    //     UpdateTrackNumber();
-    // }
-    // localStorage.setItem('genretype', genreIndex);
-    // localStorage.getItem('genretype');
-}
-
-function changePlaylist(){}
-
-function UpdateGenreName() {
-    // if (genreIndex == 0){//youtube
-    //     genreName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;YouTube";
-
-    // }
-    // else if (genreIndex == 1){//soundcloud
-    //     genreName.innerHTML = "<i class='fas fa-headphones'></i>&nbsp;Soundcloud";
-    // }
-    // else if (genreIndex == 2){//game
-    //     genreName.innerHTML = "<i class='fas fa-headphones'></i>&nbsp;Videogame";
-    // }
-    // else if (genreIndex == 3){//hip hop
-    //     genreName.innerHTML = "<i class='fas fa-headphones'></i>&nbsp;Techno and DnB";
-    // }
-    // else if (genreIndex == 4){//techno
-    //     genreName.innerHTML = "<i class='fas fa-headphones'></i>&nbsp;Custom";
-    // }
 }
 
 function UpdateTrackNumber(){
         //var trackNumber = parseInt(youtubeIndex, 10);
         var trackNumber = youtubeIndex;
+        genreNumberPrev.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
         genreNumber.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
+        genreNumberNext.innerHTML = "<i class='fas fa-list-ol'></i>&nbsp;"+(trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
         var songTitle = player.getVideoData().title;
         var songChannel = player.getVideoData().author;
         //var playlistName = player.title;
@@ -621,7 +512,6 @@ function UpdateTrackNumber(){
         localStorage.getItem('track');
 
 }
-
 
 function previousSong() {
             if (youtubeIndex > 1) {

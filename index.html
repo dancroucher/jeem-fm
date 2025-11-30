@@ -32,16 +32,15 @@
                 <div class="song-container fadeout" id="song-container" style="display: none;">
                 <div class = "padsong">
                     <div class ="song-name" id="song-name"> </div><br>
-                   <div class ="song-author" id="song-author"></div><br>  <!-- <i class="fas fa-spinner fa-pulse"></i></div><br> -->
-                    <!-- <form name="videoentry" id="videoentry" class="videoentry" onsubmit="return false" style="display: block;">
-                                <input class="videobox" type="text" value="" autocomplete="off" autocorrect="off" onfocus="this.placeholder=''" autocapitalize="none" spellcheck="false" id="videoname" oninput="checkVideoName()" onblur="submitVideoName()" onchange="submitVideoName()" placeholder="Enter your own Youtube URL...">
-                                <input type="submit" class="space" value="SUBMIT">
-                    </form><br><br> -->
+                    <div class ="song-author" id="song-author"></div><br>
+                    <!-- <i class="fas fa-spinner fa-pulse"></i></div><br> -->
                 </div>
                 <div class = "padinfo">
-                    <div class ="genre-name youtube" id="genre-name" onclick='changePlaylist()'></div>
+                    <!-- <div class ="genre-name youtube" id="genre-name" onclick='changePlaylist()'></div> -->
                     <!-- <div class ="genre-playlist" id="genre-playlist"></div> -->
-                    <div class ="genre-number" id="genre-number" onclick='nextSong()'></div><!-- onclick='randomSong()' -->
+                    <div class ="genre-number-prev" id="genre-number-prev" onclick='previousSong()'></div>
+                    <div class ="genre-number" id="genre-number" ></div>
+                    <div class ="genre-number-next" id="genre-number-next" onclick='nextSong()'></div>
                     <div class ="background-type" id="background-type" onclick='changeBackgroundType()'></div>
                     <div class ="background-name" id="background-name" onclick='changeBackground()'></div>
                     <div class ="background-auto" id="background-auto"></div>
@@ -55,12 +54,8 @@
             </div>
             <div class="soundcloud-container fadeout" id="soundcloud-container" style="display: none;">
                 <iframe id="bg-sc" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src=""></iframe>
-                <!-- <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/dirtymindmusic/setsbest-house-music-sets&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe> -->
-<br>
-<!--                 https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/marclinho/sets/mara-s-chicago-playlist<button onClick="prev()">|<<</button>
-                <button id="play" onClick="playSoundcloud()">▶</button>
-                <button onClick="next()">>>|</button> 
-                <h id="currentTrack">track</h>-->
+                <br>
+
             </div>
             <div class="popup">
                 <span class="popuptext" id="myPopup" onclick='doPopup()'>
