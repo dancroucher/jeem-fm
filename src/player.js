@@ -130,8 +130,6 @@ function playPause() {
         //playYoutubeVideo();
         playYoutubePlaylist();
         starting = false;
-        // UpdateTrackNumber();
-        // UpdateUI();
     }
 }
 function getYoutubes() {
@@ -168,54 +166,7 @@ function getYoutubes() {
     xmlhttp.send();
 }
 
-function getSoundcloud() {
-    var xmlhttp;
-    if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else { // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var text = xmlhttp.responseText;
-            //add url stuff
-            var textclean = text.replaceAll('soundcloud.com','https://w.soundcloud.com/player/?url=https%3A//soundcloud.com');
-            // Now convert it into array using regex
-            var soundclouds = textclean.split(", ");
-            soundcloudIndex = 1;
-            //console.log(soundclouds);
-            bgsc.src = soundclouds[soundcloudIndex];
-            widget         = SC.Widget(iframeElement);
-            if (localStorage.getItem('soundcloudtrack') == null){
-                currentSoundcloudTrack = 1;
-            }
-            else
-            {
-                currentSoundcloudTrack = localStorage.getItem('soundcloudtrack');
-                
-            //console.log (currentSoundcloudTrack);
-            }
-            UpdateTrackNumber();
-        }
-    }
-    xmlhttp.open("GET", soundcloudList, true);
-    xmlhttp.send();
-}
 
-// function skipSoundcloud(){
-//     widget.toggle();
-//     widget.skip(currentSoundcloudTrack);
-//     widget.getCurrentSound(function(currentSound) {
-//         songName.innerHTML = "<a href='"+currentSound.permalink_url+"'target='_blank'>"+currentSound.title+"</a>";
-//         songAuthor.innerHTML = currentSound.user.username;
-//         //genrePlaylist.innerHTML = currentSound.collection.track_count;
-
-//     });
-// }
-
-function toggleSoundcloud(){
-    widget.toggle();
-}
 
     window.addEventListener('click', mouse, false);
     window.addEventListener('mousemove', mouse, false);
@@ -755,8 +706,6 @@ function playYoutubePlaylist()
         }
         });
 
-        // localStorage.setItem('track', youtubeIndex);
-        // localStorage.getItem('track');
 }
 
 function playYoutubeVideo() {
@@ -806,52 +755,17 @@ function onPlayerReady(event) {
 }
 
 
-    
-    // localStorage.setItem('track', youtubeIndex);
-    // localStorage.getItem('track');
-
-
-
-    //UpdateTrackNumber();
-        // console.log("playing");
-  // UpdateUI();
-
-    // togglePlayButton(player.getPlayerState() !== 5);
-  // player.loadVideoById(youtubes[youtubeIndex]);
-
-
 function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.BUFFERING) {
         event.target.setPlaybackQuality('hd1080');
     }
-    // if (event.data === 0) {
-    //     togglePlayButton(false);
-    // }
 }
 
 function updateProgressValue() {
     if (starting == false && playerReady == true){
-                UpdateTrackNumber();
-                UpdateUI();
+                //UpdateTrackNumber();
+                //UpdateUI();
     }
-            // if (player.getVideoData().title == ""){
-            //     songTitle = "";
-            //     songChannel = "";
-            //     document.getElementById("song-author").className = 'song-author-empty';
-            // }
-            // else{
-            
-                // songURL.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+youtubes[youtubeIndex]+"</a>"; 
-                
-            //     document.getElementById("song-author").className = 'song-author';
-            // //}
-            // songName.innerHTML ="<a href='"+player.getVideoUrl()+"'target='_blank'>"+songTitle+"</a>" ;
-            // songAuthor.innerHTML = songChannel;
-            // genrePlaylist.innerHTML = songChannel;
-
-        
-
-
 };  
 
 function submitVideoName(){
