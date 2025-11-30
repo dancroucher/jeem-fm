@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 0);
 }, false);
 
-setInterval(updateProgressValue, 1000);
+setInterval(updateProgressValue, 500);
 setInterval(newBackground, 20000);
 
 function playPause() {
@@ -113,7 +113,6 @@ function playPause() {
             player.playVideo();
             if (starting == false){
                 mp4background.play();
-                UpdateTrackNumber();
             }
         }
         else if (playing == true) {
@@ -129,7 +128,6 @@ function playPause() {
         document.getElementById("song-container").style.display="block";
         loadBackgroundType();
         loadAuto();
-
         //loadGenreType();
         //playYoutubeVideo();
         playYoutubePlaylist();
@@ -766,7 +764,7 @@ function onPlayerStateChange(event) {
 
 function updateProgressValue() {
     if (starting == false && playerReady == true){
-
+        UpdateTrackNumber();
         UpdateUI();
     }
 };  
