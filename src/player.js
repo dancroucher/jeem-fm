@@ -357,7 +357,7 @@ function loadBackgroundType() {
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
         var text = snesbackgrounds[snesbackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video/snes');
+        var textclean = text.replace(/^/,'./assets/video/snes/');
         mp4background.src = textclean;
     }
     else if (bgTypeIndex == 1){//anime
@@ -367,7 +367,7 @@ function loadBackgroundType() {
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
         var text = animebackgrounds[animebackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video/anime');
+        var textclean = text.replace(/^/,'./assets/video/anime/');
         mp4background.src = textclean;
     }
 
@@ -378,7 +378,7 @@ function loadBackgroundType() {
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
         var text = videobackgrounds[videobackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video/video');
+        var textclean = text.replace(/^/,'./assets/video/video/');
         mp4background.src = textclean;
 
     }
@@ -402,7 +402,7 @@ function changeBackgroundType() {
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
         var text = snesbackgrounds[snesbackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video/snes');
+        var textclean = text.replace(/^/,'./assets/video/snes/');
         mp4background.src = textclean;
     }
     else if (bgTypeIndex == 1){//anime
@@ -412,7 +412,7 @@ function changeBackgroundType() {
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
         var text = animebackgrounds[animebackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video/anime');
+        var textclean = text.replace(/^/,'./assets/video/anime/');
         mp4background.src = textclean;
     }
 
@@ -423,7 +423,7 @@ function changeBackgroundType() {
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
         var text = videobackgrounds[videobackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video/video');
+        var textclean = text.replace(/^/,'./assets/video/video/');
         mp4background.src = textclean;
     }
     // else if (bgTypeIndex == 3){//youtube
@@ -446,7 +446,7 @@ function UpdateBackgroundName (){
         var str = videobackgrounds[videobackgroundIndex];
         var typeName = "video";
         // str = str.replace('.mp4','');
-        str = str.replace('./assets/video/video','');
+        str = str.replace('./assets/video/video/','');
         str = str.replace('.mp4','');
         backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
         backgroundName.innerHTML = str;
@@ -455,7 +455,7 @@ function UpdateBackgroundName (){
     else if (bgTypeIndex == 1){//gif
         var str = animebackgrounds[animebackgroundIndex];
         var typeName = "anime";
-        str = str.replace('./assets/video/amime','');
+        str = str.replace('./assets/video/amime/','');
         str = str.replace('.mp4','');
         backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
         backgroundName.innerHTML = str;
@@ -464,7 +464,7 @@ function UpdateBackgroundName (){
     else if (bgTypeIndex == 0){//none
         var str = snesbackgrounds[snesbackgroundIndex];
         var typeName = "snes";
-        str = str.replace('./assets/video/snes','');
+        str = str.replace('./assets/video/snes/','');
         str = str.replace('.mp4','');
         backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
         backgroundName.innerHTML = str;
