@@ -123,19 +123,19 @@ function playPause() {
             mp4background.pause();
         }
     }
-    else if (starting == true){
+    // else if (starting == true){
         
-        document.getElementById("start-container").style.display="none";
-        backgroundName.style.display="none";
-        document.getElementById("song-container").style.display="block";
-        loadBackgroundType();
-        loadAuto();
-        //loadGenreType();
-        //playYoutubeVideo();
-        changeBackground();
-        playYoutubePlaylist();
-        starting = false;
-    }
+    //     document.getElementById("start-container").style.display="none";
+    //     backgroundName.style.display="none";
+    //     document.getElementById("song-container").style.display="block";
+    //     loadBackgroundType();
+    //     loadAuto();
+    //     //loadGenreType();
+    //     //playYoutubeVideo();
+    //     changeBackground();
+    //     playYoutubePlaylist();
+    //     starting = false;
+    // }
 }
 function getYoutubes() {
     var xmlhttp;
@@ -720,7 +720,7 @@ var player;
 function playYoutubePlaylist() 
 {
         //playlistName = "My Playlist";
-        title.innerHTML ="// jeem-fm&nbsp;";
+        title.innerHTML ="// jeem-fm&nbsp;//";
         player = new YT.Player('bg-youtube', {
           height: '360',
           width: '640',
