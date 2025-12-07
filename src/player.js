@@ -745,6 +745,8 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
+        videosInPlaylist = player.getPlaylist();
+        checkPlaylist();
 
 }
 
@@ -787,14 +789,7 @@ function onPlayerReady(event) {
     player.setVolume(100);
     event.target.playVideo();
     player.playVideo();
-    videosInPlaylist = player.getPlaylist();
-    console.log(videosInPlaylist);
-    if (videosInPlaylist != null){
-        playerReady = true;
-    }
-    else{
-        console.log("invalid ID");
-    }
+
 }
 
 
@@ -804,13 +799,20 @@ function onPlayerStateChange(event) {
     }
 }
 
+function checkPlaylist(){
+    console.log(videosInPlaylist);
+    if (videosInPlaylist != null && starting == true){
+        doStart();
+    }
+    else{
+        console.log("invalid ID");
+    }
+}
+
 function updateProgressValue() {
     if (starting == false && playerReady == true){
         UpdateTrackNumber();
         UpdateUI();
-    }
-    else if (starting == true && playerReady == true){
-        doStart();
     }
     
 };  
