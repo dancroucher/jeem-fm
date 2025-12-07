@@ -826,17 +826,16 @@ function doVideoName(){
         playlistName = videoNameClean;
 
         playYoutubePlaylist();
-        if (videosInPlaylist.length = 0)
-        {
-        window.alert("bad playlist");
-        }
-        document.getElementById("start-container").style.display="none";
-        backgroundName.style.display="none";
-        document.getElementById("song-container").style.display="block";
-        loadBackgroundType();
-        loadAuto();
-        changeBackground();
-        starting = false;
+
+        window.alert(videosInPlaylist.length);
+        
+        // document.getElementById("start-container").style.display="none";
+        // backgroundName.style.display="none";
+        // document.getElementById("song-container").style.display="block";
+        // loadBackgroundType();
+        // loadAuto();
+        // changeBackground();
+        // starting = false;
         //player.loadVideoById(videoNameClean);
         //force YT
         //UpdateUI();
