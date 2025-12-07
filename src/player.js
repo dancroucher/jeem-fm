@@ -97,7 +97,7 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
-    start.innerHTML = "<span><input  class='videobox' type=\"text\" id=\"video-entry\" name=\"videoName\"><br><br><input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'><br><br>Click / tap anywhere to start</span>";
+    start.innerHTML = "<span><input  class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\"><br><br><input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'><br><br>Click / tap anywhere to start</span>";
     //backgroundAuto.style.display="none";
 
     }, 0);
@@ -803,20 +803,21 @@ function updateProgressValue() {
 };  
 
 function submitVideoName(){
-    videoName = videobox.value;
-    if (videoName.includes("https://www.youtube.com/watch?v=")){
-        videoNameClean = videoName.replaceAll('https://www.youtube.com/watch?v=','');
-        doVideoName();
-    }
-    else if (videoName.includes("https://youtu.be")){
-        videoNameClean = videoName.replaceAll('https://youtu.be/','');
-        doVideoName();
-    }
-    else {
-        document.getElementById("videoname").value = "";
-        document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
-        videobox.className = 'videobox';
-    }
+    videoName = document.getElementById('video-entry').value;
+    window.alert(videoName);
+    // if (videoName.includes("https://www.youtube.com/watch?v=")){
+    //     videoNameClean = videoName.replaceAll('https://www.youtube.com/watch?v=','');
+    //     doVideoName();
+    // }
+    // else if (videoName.includes("https://youtu.be")){
+    //     videoNameClean = videoName.replaceAll('https://youtu.be/','');
+    //     doVideoName();
+    // }
+    // else {
+    //     document.getElementById("videoname").value = "";
+    //     document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
+    //     videobox.className = 'videobox';
+    // }
 }
 
 function doVideoName(){
