@@ -806,7 +806,7 @@ function updateProgressValue() {
         UpdateUI();
     }
     else if (starting == true && playerReady == true){
-        start();
+        doStart();
     }
     
 };  
