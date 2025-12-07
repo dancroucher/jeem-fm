@@ -22,7 +22,6 @@ const start = document.getElementById('start');
 const songContainer = document.getElementById('song-container');
 const infoContainer = document.getElementById('info-container');
 const titleContainer = document.getElementById('title-container');
-const soundcloudContainer = document.getElementById('soundcloud-container');
 const infoButton = document.querySelector('.info-button'); // background display type
 const fullscreen = document.querySelector('.fullscreen');
 const title = document.getElementById('title'); // page/site title
@@ -49,8 +48,9 @@ var youtubeList_tdnb = "assets/lists/tdnb.txt";
 var youtubeList_none = "assets/lists/none.txt";
 var fauxInput = document.createElement('textarea');
 var videoName;
-var mp4List = "assets/lists/videos_vid.txt";
-var gifList = "assets/lists/videos_gif.txt";
+var videoList = "assets/lists/videos/video.txt";
+var animeList = "assets/lists/videos/anime.txt";
+var snesList = "assets/lists/videos/snes.txt";
 var videoNameClean;
 let pPause = document.querySelector('#play-pause'); // element where play and pause image appears
 var player;
