@@ -350,7 +350,7 @@ function loadBackgroundType() {
         let myBackType = localStorage.getItem('backtype');
         bgTypeIndex = myBackType;
     }
-    if (bgTypeIndex == 0){//none
+    if (bgTypeIndex == 0){//snes
        //document.getElementById("bg-gif").style.display="block";
         document.getElementById("bg-start").style.display="none";
         document.getElementById("bg-mp4").style.display="block";
@@ -386,7 +386,7 @@ function loadBackgroundType() {
     localStorage.getItem('backtype');
     mp4background.play();
     UpdateUI();
-    //UpdateBackgroundName();
+    UpdateBackgroundName();
 }
 function changeBackgroundType() {
     //increment background type
