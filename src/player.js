@@ -718,7 +718,7 @@ var player;
 
 function playYoutubePlaylist() 
 {
-        playlistName = "My Playlist";
+        //playlistName = "My Playlist";
         title.innerHTML ="// jeem-fm&nbsp;";
         player = new YT.Player('bg-youtube', {
           height: '390',
@@ -733,7 +733,8 @@ function playYoutubePlaylist()
             iv_load_policy: 3,
             modestbranding: 1,
             listType:'playlist',
-            list: 'PLnNfLjvDzk1CTMebS0ADSyK91Fby8vFgf',
+            list: playlistName,
+            // list: 'PLnNfLjvDzk1CTMebS0ADSyK91Fby8vFgf', oow
             // list: 'PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp',//blogwave
             index: youtubeIndex
           },
@@ -804,34 +805,44 @@ function updateProgressValue() {
 
 function submitVideoName(){
     videoName = document.getElementById('video-entry').value;
-    window.alert(videoName);
-    // if (videoName.includes("https://www.youtube.com/watch?v=")){
-    //     videoNameClean = videoName.replaceAll('https://www.youtube.com/watch?v=','');
-    //     doVideoName();
-    // }
-    // else if (videoName.includes("https://youtu.be")){
-    //     videoNameClean = videoName.replaceAll('https://youtu.be/','');
-    //     doVideoName();
-    // }
-    // else {
-    //     document.getElementById("videoname").value = "";
-    //     document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
-    //     videobox.className = 'videobox';
-    // }
+    //window.alert(videoName);
+    if (videoName.includes("https://www.youtube.com/watch?v=")){
+        videoNameClean = videoName.replaceAll('https://www.youtube.com/watch?v=','');
+        doVideoName();
+    }
+    else if (videoName.includes("https://youtu.be")){
+        videoNameClean = videoName.replaceAll('https://youtu.be/','');
+        doVideoName();
+    }
+    else {
+        videoNameClean = videoName;
+        doVideoName();
+        // document.getElementById("videoname").value = "";
+        // document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
+        // videobox.className = 'videobox';
+    }
 }
 
 function doVideoName(){
         console.log(videoNameClean);
+        playlistName = videoNameClean;
+        document.getElementById("start-container").style.display="none";
+        backgroundName.style.display="none";
+        document.getElementById("song-container").style.display="block";
+        loadBackgroundType();
+        loadAuto();
+        changeBackground();
+        playYoutubePlaylist();
+        starting = false;
         //player.loadVideoById(videoNameClean);
         //force YT
         //UpdateUI();
         //playing = true;
-        document.getElementById("videoname").value = "";
-        document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
-        document.getElementById('videoname').blur();
-        UpdateBackgroundName();
-        UpdateUI();
-        
+        // document.getElementById("videoname").value = "";
+        // document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
+        // document.getElementById('videoname').blur();
+        // UpdateBackgroundName();
+        // UpdateUI();
 }
 
 var justHidden = false;
