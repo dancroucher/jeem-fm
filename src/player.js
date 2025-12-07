@@ -48,9 +48,9 @@ var youtubeList_tdnb = "assets/lists/tdnb.txt";
 var youtubeList_none = "assets/lists/none.txt";
 var fauxInput = document.createElement('textarea');
 var videoName;
-var videoList = "assets/lists/videos/video.txt";
-var animeList = "assets/lists/videos/anime.txt";
-var snesList = "assets/lists/videos/snes.txt";
+var videoList = "assets/lists/video/video.txt";
+var animeList = "assets/lists/video/anime.txt";
+var snesList = "assets/lists/video/snes.txt";
 var videoNameClean;
 let pPause = document.querySelector('#play-pause'); // element where play and pause image appears
 var player;
