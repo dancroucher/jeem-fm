@@ -800,7 +800,7 @@ function onPlayerStateChange(event) {
 
 function checkPlaylist(){
     videosInPlaylist = player.getPlaylist();
-    console.log(videosInPlaylist);
+    //console.log(videosInPlaylist);
     if (videosInPlaylist != null && starting == true){
         doStart();
     }
