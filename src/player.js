@@ -97,7 +97,7 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
-    start.innerHTML = "<span class='info-button-out' id='info-button' onclick='infoSlide()'><i class='far fa-question-circle'></i>Click / tap anywhere to start</span>";
+    start.innerHTML = "<span class='' id='video-entry' ><input type="text" id="fname" name="fname"><br>Click / tap anywhere to start</span>";
     //backgroundAuto.style.display="none";
 
     }, 0);
