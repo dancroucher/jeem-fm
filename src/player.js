@@ -8,7 +8,8 @@ const backgroundType = document.getElementById('background-type'); // type of ba
 const backgroundName = document.getElementById('background-name'); // filename of background
 const backgroundAuto = document.getElementById('background-auto'); // background auto change or not
 const mp4background =  document.getElementById('mp4-background');
-const gifbackground =  document.getElementById('gif-background');
+const mp4altbackground =  document.getElementById('mp4-alt-background');
+// const gifbackground =  document.getElementById('gif-background');
 
 const videobox = document.getElementById('video-entry');
 var videoName;
@@ -97,7 +98,7 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
-    start.innerHTML = "<span><input  class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\"><br><br><input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'><br><br>Click / tap anywhere to start</span>";
+    start.innerHTML = "<form><input  class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\"><br><br><input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'><br><br>Click / tap anywhere to start</form>";
     //backgroundAuto.style.display="none";
 
     }, 0);
@@ -484,7 +485,7 @@ function UpdateTrackNumber(){
         var songTitle = player.getVideoData().title;
         var songChannel = player.getVideoData().author;
         //var playlistName = player.title;
-        console.log(player.getVideoData().playlist)
+        //console.log(player.getVideoData().playlist)
         document.getElementById("song-author").className = 'song-author';
         songName.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+songTitle+"</a>";
         songAuthor.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+songChannel+"</a>";
