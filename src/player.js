@@ -745,7 +745,6 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
-        videosInPlaylist = player.getPlaylist();
         checkPlaylist();
 
 }
@@ -800,6 +799,7 @@ function onPlayerStateChange(event) {
 }
 
 function checkPlaylist(){
+    videosInPlaylist = player.getPlaylist();
     console.log(videosInPlaylist);
     if (videosInPlaylist != null && starting == true){
         doStart();
