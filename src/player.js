@@ -10,7 +10,7 @@ const backgroundAuto = document.getElementById('background-auto'); // background
 const mp4background =  document.getElementById('mp4-background');
 const gifbackground =  document.getElementById('gif-background');
 
-const videobox = document.getElementById('videoname');
+const videobox = document.getElementById('video-entry');
 var videoName;
 const song = document.querySelector('#song'); // audio object
 //const playlistName = document.getElementById('genre-name');
@@ -27,7 +27,7 @@ const infoButton = document.querySelector('.info-button'); // background display
 const fullscreen = document.querySelector('.fullscreen');
 const title = document.getElementById('title'); // page/site title
 const songTitle = document.querySelector('.song-title'); // element where track title appears
-const bgTitle = document.querySelector('.bg-title'); // element where track title appears
+const bgTitle = document.querySelector('.bg-title'); // eleent where track title appears
 const controlsImage = document.getElementById('bottom');
 const bgmp4 = document.getElementById('bg-mp4');
 const bggif = document.getElementById('bg-gif');
@@ -97,7 +97,7 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
-    start.innerHTML = "<span><input  class='videobox' type=\"text\" id=\"video-entry\" name=\"videoName\"><br><br><input type=\"submit\" value=\"Submit\"><br><br>Click / tap anywhere to start</span>";
+    start.innerHTML = "<span><input  class='videobox' type=\"text\" id=\"video-entry\" name=\"videoName\"><br><br><input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'><br><br>Click / tap anywhere to start</span>";
     //backgroundAuto.style.display="none";
 
     }, 0);
@@ -111,9 +111,9 @@ function playPause() {
         if (playing == false) {
             playing = true;
             player.playVideo();
-            if (starting == false){
+            //if (starting == false){
                 mp4background.play();
-            }
+            //}
         }
         else if (playing == true) {
             playing = false;
@@ -133,8 +133,6 @@ function playPause() {
         //playYoutubeVideo();
         changeBackground();
         playYoutubePlaylist();
-
-        loadAuto();
         starting = false;
     }
 }
