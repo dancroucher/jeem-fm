@@ -720,7 +720,7 @@ var player;
 function playYoutubePlaylist() 
 {
         //playlistName = "My Playlist";
-        title.innerHTML ="// jeem-fm&nbsp;//";
+        title.innerHTML ="// jeem-fm&nbsp;";
         player = new YT.Player('bg-youtube', {
           height: '360',
           width: '640',
@@ -787,6 +787,7 @@ function onPlayerReady(event) {
     event.target.playVideo();
     player.playVideo();
     videosInPlaylist = player.getPlaylist();
+    console.log(videosInPlaylist);
     if (videosInPlaylist.length > 0){
         playerReady = true;
     }
