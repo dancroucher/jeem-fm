@@ -32,7 +32,7 @@ const bgTitle = document.querySelector('.bg-title'); // eleent where track title
 const controlsImage = document.getElementById('bottom');
 const bgmp4 = document.getElementById('bg-mp4');
 const bggif = document.getElementById('bg-gif');
-const bgyt = document.getElementById('bg-youtube');
+// const bgyt = document.getElementById('bg-youtube');
 
 var elem = document.documentElement;
 var fullscreenbool = false;
