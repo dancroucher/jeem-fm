@@ -780,12 +780,16 @@ function doPopup() {
 }
 
 function onPlayerReady(event) {
+
     player.setPlaybackQuality("hd1080");
     player.setVolume(100);
     event.target.playVideo();
     player.playVideo();
     videosInPlaylist = player.getPlaylist();
-    playerReady = true;
+    if (videosInPlaylist.length > 0){
+        playerReady = true;
+    }
+    
 
 }
 
@@ -801,6 +805,10 @@ function updateProgressValue() {
         UpdateTrackNumber();
         UpdateUI();
     }
+    else if (starting == true && playerReady == true){
+        start();
+    }
+    
 };  
 
 function submitVideoName(){
@@ -824,27 +832,19 @@ function submitVideoName(){
 function doVideoName(){
         console.log(videoNameClean);
         playlistName = videoNameClean;
-
         playYoutubePlaylist();
-
-        window.alert(videosInPlaylist.length);
-        
-        // document.getElementById("start-container").style.display="none";
-        // backgroundName.style.display="none";
-        // document.getElementById("song-container").style.display="block";
-        // loadBackgroundType();
-        // loadAuto();
-        // changeBackground();
-        // starting = false;
-        //player.loadVideoById(videoNameClean);
-        //force YT
-        //UpdateUI();
-        //playing = true;
-        // document.getElementById("videoname").value = "";
-        // document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
-        // document.getElementById('videoname').blur();
-        // UpdateBackgroundName();
-        // UpdateUI();
+}
+ 
+function doStart(){
+        document.getElementById("start-container").style.display="none";
+        backgroundName.style.display="none";
+        document.getElementById("song-container").style.display="block";
+        loadBackgroundType();
+        loadAuto();
+        changeBackground();
+        starting = false;
+        UpdateBackgroundName();
+        UpdateUI();
 }
 
 var justHidden = false;
