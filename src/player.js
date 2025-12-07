@@ -721,7 +721,7 @@ function playYoutubePlaylist()
 {
         //playlistName = "My Playlist";
         title.innerHTML ="// jeem-fm&nbsp;";
-        console.log(videoNameClean);
+        //console.log(videoNameClean);
         player = new YT.Player('bg-youtube', {
           height: '360',
           width: '640',
@@ -787,13 +787,15 @@ function onPlayerReady(event) {
     player.setVolume(100);
     event.target.playVideo();
     player.playVideo();
-    // videosInPlaylist = player.getPlaylist();
-    // console.log(videosInPlaylist);
-    // if (videosInPlaylist.length > 0){
-        playerReady = true;
-    //}
-    
-
+    videosInPlaylist = player.getPlaylist();
+    console.log(videosInPlaylist);
+    if (starting == true && videosInPlaylist.length > 0){
+        doStart();
+    }
+    else
+    {
+        console.log("invalid id");
+    }
 }
 
 
@@ -808,10 +810,6 @@ function updateProgressValue() {
         UpdateTrackNumber();
         UpdateUI();
     }
-    else if (starting == true && playerReady == true){
-        doStart();
-    }
-    
 };  
 
 function submitVideoName(){
