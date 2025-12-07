@@ -32,9 +32,7 @@ const controlsImage = document.getElementById('bottom');
 const bgmp4 = document.getElementById('bg-mp4');
 const bggif = document.getElementById('bg-gif');
 const bgyt = document.getElementById('bg-youtube');
-const bgsc = document.getElementById('bg-sc');
-var totalSoundcloudTracks;
-var currentSoundcloudTrack;
+
 var elem = document.documentElement;
 var fullscreenbool = false;
 var auto = false;
@@ -72,8 +70,8 @@ let playing = false;
 let starting = true;
 let playerReady = false;
 
-var iframeElement   = document.querySelector('iframe');
-var iframeElementID = iframeElement.id;
+// var iframeElement   = document.querySelector('iframe');
+// var iframeElementID = iframeElement.id;
 var widget;
 
 var csv;
