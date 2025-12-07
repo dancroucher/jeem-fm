@@ -686,7 +686,7 @@ var player;
 function playYoutubePlaylist() 
 {
         playlistName = "My Playlist";
-        title.innerHTML ="// jeem-fm&nbsp//&nbsp" + (playlistName);
+        title.innerHTML ="// jeem-fm&nbsp//<br>" + (playlistName);
         player = new YT.Player('bg-youtube', {
           height: '390',
           width: '640',
