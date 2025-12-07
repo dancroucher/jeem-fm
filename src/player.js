@@ -86,7 +86,8 @@ window.onload = function() {
     //getSoundcloud();    
     //playYoutubeVideo();
     getVideoBackgrounds();
-    getGifBackgrounds(); 
+    getAnimeBackgrounds(); 
+    getSnesBackgrounds();
 
 
 }
@@ -261,16 +262,16 @@ function getVideoBackgrounds() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             var text = xmlhttp.responseText;
             // Now convert it into array using regex
-            mp4backgrounds = text.split(/\n|\r/g);
-            mp4backgroundsMax = mp4backgrounds.length-1;
-            mp4backgroundIndex = Math.floor(Math.random() * mp4backgroundsMax);
+            videobackgrounds = text.split(/\n|\r/g);
+            videobackgroundsMax = videobackgrounds.length-1;
+            videobackgroundIndex = Math.floor(Math.random() * videobackgroundsMax);
         }
     }
     xmlhttp.open("GET", mp4List, true);
     xmlhttp.send();
 }
 
-function getGifBackgrounds() {
+function getAnimeBackgrounds() {
     var xmlhttp;
     if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -281,16 +282,34 @@ function getGifBackgrounds() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             var text = xmlhttp.responseText;
             // Now convert it into array using regex
-            gifbackgrounds = text.split(/\n|\r/g);
-            gifbackgroundsMax = gifbackgrounds.length-1;
-            gifbackgroundIndex = Math.floor(Math.random() * gifbackgroundsMax);
+            animebackgrounds = text.split(/\n|\r/g);
+            animebackgroundsMax = animebackgrounds.length-1;
+            animebackgroundIndex = Math.floor(Math.random() * animebackgroundsMax);
         }
     }
     xmlhttp.open("GET", gifList, true);
     xmlhttp.send()
 }
 
-
+function getSnesBackgrounds() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else { // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var text = xmlhttp.responseText;
+            // Now convert it into array using regex
+            snesbackgrounds = text.split(/\n|\r/g);
+            snesbackgroundsMax = snesbackgrounds.length-1;
+            snesbackgroundIndex = Math.floor(Math.random() * snesbackgroundsMax);
+        }
+    }
+    xmlhttp.open("GET", gifList, true);
+    xmlhttp.send()
+}
 
 
 function infoSlide() {
