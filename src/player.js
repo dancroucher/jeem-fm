@@ -745,7 +745,7 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
-        checkPlaylist();
+        doCheckPlaylist();
 
 }
 
@@ -788,7 +788,14 @@ function onPlayerReady(event) {
     player.setVolume(100);
     event.target.playVideo();
     player.playVideo();
-
+    videosInPlaylist = player.getPlaylist();
+    console.log(videosInPlaylist);
+    if (videosInPlaylist != null){
+        playerReady = true;
+    }
+    else{
+        console.log("invalid ID");
+    }
 }
 
 
@@ -798,24 +805,23 @@ function onPlayerStateChange(event) {
     }
 }
 
-function checkPlaylist(){
-    videosInPlaylist = player.getPlaylist();
-    //console.log(videosInPlaylist);
-    if (videosInPlaylist != null && starting == true){
-        doStart();
-    }
-    else{
-        console.log("invalid ID");
-    }
-}
-
 function updateProgressValue() {
     if (starting == false && playerReady == true){
         UpdateTrackNumber();
         UpdateUI();
     }
+
     
 };  
+
+function doCheckPlaylist(){
+    if (starting == true && videosInPlaylist != null){
+        doStart();
+    }
+    else{
+        console.log("Invalid ID");
+    }
+}
 
 function submitVideoName(){
     videoName = document.getElementById('video-entry').value;
