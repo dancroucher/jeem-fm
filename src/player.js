@@ -523,7 +523,7 @@ function clearData() {
 }
 
 function newBackground() {
-    if ((bgTypeIndex == 2 || 1) && (auto == true)){
+    if (auto == true){
         changeBackground();
     }   
 }
@@ -568,28 +568,38 @@ function loadBackground() {
 }
 
 function changeBackground() {
-    // if (bgTypeIndex == 2){
-    //     mp4backgroundIndex++;
-    //     if (mp4backgroundIndex > mp4backgroundsMax) {
-    //         mp4backgroundIndex = 0;
-    //     };
-    //     var text = mp4backgrounds[mp4backgroundIndex];
-    //     var textclean = text.replace(/^/,'./assets/video_vid/');
-    //     mp4background.src = textclean;
-    //     localStorage.setItem('background', mp4backgroundIndex);
-    // }
-    // else if (bgTypeIndex == 1){
-    //     gifbackgroundIndex++;
-    //     if (gifbackgroundIndex > gifbackgroundsMax) {
-    //         gifbackgroundIndex = 0;
-    //     };
-    //     var text = gifbackgrounds[gifbackgroundIndex];
-    //     var textclean = text.replace(/^/,'./assets/video_gif/');
-    //     mp4background.src = textclean;
-    //     localStorage.setItem('background', gifbackgroundIndex);
-    // }
-    // localStorage.getItem('background');
-    // UpdateBackgroundName();
+    if (bgTypeIndex == 2){
+        videobackgroundIndex++;
+        if (videobackgroundIndex > videobackgroundsMax) {
+            videobackgroundIndex = 0;
+        };
+        var text = videobackgrounds[videobackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/video/');
+        mp4background.src = textclean;
+        localStorage.setItem('background', videobackgroundIndex);
+    }
+    else if (bgTypeIndex == 1){
+        animebackgroundIndex++;
+        if (animebackgroundIndex > animebackgroundsMax) {
+            animebackgroundIndex = 0;
+        };
+        var text = animebackgrounds[animebackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/anime/');
+        mp4background.src = textclean;
+        localStorage.setItem('background', animebackgroundIndex);
+    }
+    else if (bgTypeIndex == 0){
+        snesbackgroundIndex++;
+        if (snesbackgroundIndex > snesbackgroundsMax) {
+            snesbackgroundIndex = 0;
+        };
+        var text = snesbackgrounds[snesbackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/snes/');
+        mp4background.src = textclean;
+        localStorage.setItem('background', snesbackgroundIndex);
+    }
+    localStorage.getItem('background');
+    UpdateBackgroundName();
 }
 
 
