@@ -721,7 +721,7 @@ function playYoutubePlaylist()
         //playlistName = "My Playlist";
         title.innerHTML ="// jeem-fm&nbsp;";
         player = new YT.Player('bg-youtube', {
-          height: '390',
+          height: '360',
           width: '640',
           playerVars: 
           {
@@ -752,8 +752,8 @@ function playYoutubeVideo() {
     var myVideoId = "PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp";
     var ctrlq = document.getElementById("bg-youtube");
     player = new YT.Player('bg-youtube', {
-        height: '1080',
-        width: '1920',
+        height: '360',
+        width: '640',
         videoId: myVideoId,
         playerVars: {
             autoplay: 1,
@@ -808,31 +808,34 @@ function submitVideoName(){
     //window.alert(videoName);
     if (videoName.includes("https://www.youtube.com/watch?v=")){
         videoNameClean = videoName.replaceAll('https://www.youtube.com/watch?v=','');
-        doVideoName();
     }
     else if (videoName.includes("https://youtu.be")){
         videoNameClean = videoName.replaceAll('https://youtu.be/','');
-        doVideoName();
     }
     else {
         videoNameClean = videoName;
-        doVideoName();
         // document.getElementById("videoname").value = "";
         // document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
         // videobox.className = 'videobox';
     }
+    doVideoName();
 }
 
 function doVideoName(){
         console.log(videoNameClean);
         playlistName = videoNameClean;
+
+        playYoutubePlaylist();
+        if (videosInPlaylist.length = 0)
+        {
+        window.alert("bad playlist");
+        }
         document.getElementById("start-container").style.display="none";
         backgroundName.style.display="none";
         document.getElementById("song-container").style.display="block";
         loadBackgroundType();
         loadAuto();
         changeBackground();
-        playYoutubePlaylist();
         starting = false;
         //player.loadVideoById(videoNameClean);
         //force YT
