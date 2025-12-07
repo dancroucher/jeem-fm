@@ -128,6 +128,7 @@ function playPause() {
         loadAuto();
         //loadGenreType();
         //playYoutubeVideo();
+        changeBackground();
         playYoutubePlaylist();
 
         loadAuto();

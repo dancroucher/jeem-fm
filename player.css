@@ -227,6 +227,7 @@ a:active {
     color:  rgba(250,249,246,1);
   }
     .info-button {
+    display: none;
     color:  rgba(250,249,246,0.9);
     float: right;
     clear: both;
