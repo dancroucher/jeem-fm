@@ -515,20 +515,19 @@ input[type=text], select {
     align-items: center;
     clear: both;
     line-height: 0.85em;*/
-    color:  rgba(250,249,246,0.9);
-    width: 525px;
+    color:  rgba(22, 22, 22, 0.9);
+    width: 500px;
     padding-top: 6px;
     padding-bottom: 2px;
     padding-left: 6px;
-    border: 0em solid rgba(255,255,255,0.75);
 
 
 }
 
 
 input[type=submit] {
-/*hide submit button */
-    visibility: hidden;
+/*hide submit button 
+    visibility: hidden;*/
     
 }
 
@@ -539,14 +538,13 @@ input[type=submit] {
 }
 
 .videobox {
-    color:  rgba(250,249,246,0.9);
+    color:  rgba(0, 0, 0, 0.9);
     display: inline-block;
     padding-bottom: 2px;
     padding-top: 3px;
     padding-left: 6px;
     padding-right: 5px;
     line-height: 1em;
-    background-color: rgba(0, 0, 0, 0.5);
     z-index: 4;
 }
 
