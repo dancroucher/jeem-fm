@@ -50,14 +50,14 @@ var fauxInput = document.createElement('textarea');
 var videoName;
 var videoList = "assets/lists/video/video.txt";
 var animeList = "assets/lists/video/anime.txt";
-var snesList = "assets/lists/video/snes.txt";
+var skatingList = "assets/lists/video/skating.txt";
 var videoNameClean;
 let pPause = document.querySelector('#play-pause'); // element where play and pause image appears
 var player;
 var youtubes = [];
 var videosInPlaylist = [];
 var animebackgrounds = [];
-var snesbackgrounds = [];
+var skatingbackgrounds = [];
 var videobackgrounds = [];
 var backtypes = [0,1,2];
 var bgTypeIndex;
@@ -302,12 +302,12 @@ function getSnesBackgrounds() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             var text = xmlhttp.responseText;
             // Now convert it into array using regex
-            snesbackgrounds = text.split(/\n|\r/g);
-            snesbackgroundsMax = snesbackgrounds.length-1;
-            snesbackgroundIndex = Math.floor(Math.random() * snesbackgroundsMax);
+            skatingbackgrounds = text.split(/\n|\r/g);
+            skatingbackgroundsMax = skatingbackgrounds.length-1;
+            skatingbackgroundIndex = Math.floor(Math.random() * skatingbackgroundsMax);
         }
     }
-    xmlhttp.open("GET", snesList, true);
+    xmlhttp.open("GET", skatingList, true);
     xmlhttp.send()
 }
 
@@ -350,14 +350,14 @@ function loadBackgroundType() {
         let myBackType = localStorage.getItem('backtype');
         bgTypeIndex = myBackType;
     }
-    if (bgTypeIndex == 0){//snes
+    if (bgTypeIndex == 0){//skating
        //document.getElementById("bg-gif").style.display="block";
         document.getElementById("bg-start").style.display="none";
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
-        var text = snesbackgrounds[snesbackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video/snes/');
+        var text = skatingbackgrounds[skatingbackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/skating/');
         mp4background.src = textclean;
     }
     else if (bgTypeIndex == 1){//anime
@@ -395,14 +395,14 @@ function changeBackgroundType() {
     if (bgTypeIndex > backtypes.length-1) {
         bgTypeIndex = 0;
     };
-    if (bgTypeIndex == 0){//snes
+    if (bgTypeIndex == 0){//skating
         //document.getElementById("bg-gif").style.display="block";
         document.getElementById("bg-start").style.display="none";
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
-        var text = snesbackgrounds[snesbackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video/snes/');
+        var text = skatingbackgrounds[skatingbackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/skating/');
         mp4background.src = textclean;
     }
     else if (bgTypeIndex == 1){//anime
@@ -462,9 +462,9 @@ function UpdateBackgroundName (){
         backgroundAuto.innerHTML = autoTypeName;
     }
     else if (bgTypeIndex == 0){//none
-        var str = snesbackgrounds[snesbackgroundIndex];
-        var typeName = "snes";
-        str = str.replace('./assets/video/snes/','');
+        var str = skatingbackgrounds[skatingbackgroundIndex];
+        var typeName = "skating";
+        str = str.replace('./assets/video/skating/','');
         str = str.replace('.mp4','');
         backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
         backgroundName.innerHTML = str;
@@ -589,14 +589,14 @@ function changeBackground() {
         localStorage.setItem('background', animebackgroundIndex);
     }
     else if (bgTypeIndex == 0){
-        snesbackgroundIndex++;
-        if (snesbackgroundIndex > snesbackgroundsMax) {
-            snesbackgroundIndex = 0;
+        skatingbackgroundIndex++;
+        if (skatingbackgroundIndex > skatingbackgroundsMax) {
+            skatingbackgroundIndex = 0;
         };
-        var text = snesbackgrounds[snesbackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video/snes/');
+        var text = skatingbackgrounds[skatingbackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/skating/');
         mp4background.src = textclean;
-        localStorage.setItem('background', snesbackgroundIndex);
+        localStorage.setItem('background', skatingbackgroundIndex);
     }
     localStorage.getItem('background');
     UpdateBackgroundName();
