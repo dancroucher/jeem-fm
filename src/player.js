@@ -331,29 +331,29 @@ function loadBackgroundType() {
         bgTypeIndex = myBackType;
     }
     if (bgTypeIndex == 0){//none
-        document.getElementById("bg-gif").style.display="block";
-        document.getElementById("bg-mp4").style.display="none";
-        document.getElementById("bg-start").style.display="none";
-        document.getElementById("bg-youtube").style.display="none";
-        document.getElementById("background-name").style.display="none";
-    }
-    else if (bgTypeIndex == 1){//gif
-        document.getElementById("bg-gif").style.display="none";
+       //document.getElementById("bg-gif").style.display="block";
         document.getElementById("bg-start").style.display="none";
         document.getElementById("bg-mp4").style.display="block";
-        document.getElementById("bg-youtube").style.display="none";
-        document.getElementById("background-name").style.display="none";
+        // document.getElementById("bg-youtube").style.display="none";
+        // document.getElementById("background-name").style.display="none";
+    }
+    else if (bgTypeIndex == 1){//gif
+        //document.getElementById("bg-gif").style.display="none";
+        document.getElementById("bg-start").style.display="none";
+        document.getElementById("bg-mp4").style.display="block";
+        // document.getElementById("bg-youtube").style.display="none";
+        // document.getElementById("background-name").style.display="none";
         var text = gifbackgrounds[gifbackgroundIndex];
         var textclean = text.replace(/^/,'./assets/video_gif/');
         mp4background.src = textclean;
     }
 
     else if (bgTypeIndex == 2){//video
-        document.getElementById("bg-gif").style.display="none";
+        //document.getElementById("bg-gif").style.display="none";
         document.getElementById("bg-start").style.display="none";
         document.getElementById("bg-mp4").style.display="block";
-        document.getElementById("bg-youtube").style.display="none";
-        document.getElementById("background-name").style.display="none";
+        // document.getElementById("bg-youtube").style.display="none";
+        // document.getElementById("background-name").style.display="none";
         var text = mp4backgrounds[mp4backgroundIndex];
         var textclean = text.replace(/^/,'./assets/video_vid/');
         mp4background.src = textclean;
@@ -373,29 +373,29 @@ function changeBackgroundType() {
         bgTypeIndex = 0;
     };
     if (bgTypeIndex == 0){//none
-        document.getElementById("bg-gif").style.display="block";
-        document.getElementById("bg-mp4").style.display="none";
+        //document.getElementById("bg-gif").style.display="block";
         document.getElementById("bg-start").style.display="none";
-        document.getElementById("bg-youtube").style.display="none";
-        document.getElementById("background-name").style.display="none";
+        document.getElementById("bg-mp4").style.display="block";
+        // document.getElementById("bg-youtube").style.display="none";
+        // document.getElementById("background-name").style.display="none";
     }
     else if (bgTypeIndex == 1){//gif
-        document.getElementById("bg-gif").style.display="none";
-        document.getElementById("bg-mp4").style.display="block";
+        //document.getElementById("bg-gif").style.display="none";
         document.getElementById("bg-start").style.display="none";
-        document.getElementById("bg-youtube").style.display="none";
-        document.getElementById("background-name").style.display="none";
+        document.getElementById("bg-mp4").style.display="block";
+        // document.getElementById("bg-youtube").style.display="none";
+        // document.getElementById("background-name").style.display="none";
         var text = gifbackgrounds[gifbackgroundIndex];
         var textclean = text.replace(/^/,'./assets/video_gif/');
         mp4background.src = textclean;
     }
 
     else if (bgTypeIndex == 2){//video
-        document.getElementById("bg-gif").style.display="none";
-        document.getElementById("bg-mp4").style.display="block";
+        //document.getElementById("bg-gif").style.display="none";
         document.getElementById("bg-start").style.display="none";
-        document.getElementById("bg-youtube").style.display="none";
-        document.getElementById("background-name").style.display="none";
+        document.getElementById("bg-mp4").style.display="block";
+        // document.getElementById("bg-youtube").style.display="none";
+        // document.getElementById("background-name").style.display="none";
         var text = mp4backgrounds[mp4backgroundIndex];
         var textclean = text.replace(/^/,'./assets/video_vid/');
         mp4background.src = textclean;
@@ -418,31 +418,31 @@ function changeBackgroundType() {
 function UpdateBackgroundName (){
     if (bgTypeIndex == 2){//video
         var str = mp4backgrounds[mp4backgroundIndex];
+        var typeName = "mp4";
         // str = str.replace('.mp4','');
         str = str.replace('./assets/video_vid/','');
         str = str.replace('.mp4','');
-        backgroundType.innerHTML = "<i class='fas fa-file-video'></i>&nbsp;mp4";
+        backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
         backgroundName.innerHTML = str;
         backgroundAuto.innerHTML = autoTypeName;
     }
     else if (bgTypeIndex == 1){//gif
         var str = gifbackgrounds[gifbackgroundIndex];
-        // str = str.replace('.mp4','');
+        var typeName = "gif";
         str = str.replace('./assets/video_gif/','');
         str = str.replace('.mp4','');
-        backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;gif";
+        backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
         backgroundName.innerHTML = str;
         backgroundAuto.innerHTML = autoTypeName;
     }
-    // else if (bgTypeIndex == 3){//youtube
-    //     backgroundType.innerHTML = "<i class='fas fa-palette'></i>&nbsp;YouTube";
-    //     backgroundName.innerHTML = "";
-    //     backgroundAuto.innerHTML = "";
-    //}
     else if (bgTypeIndex == 0){//none
-        backgroundType.innerHTML = "<i class='fas fa-file'></i>&nbsp;None";
-        backgroundName.innerHTML = "---";
-        backgroundAuto.innerHTML = "";
+        var str = gifbackgrounds[gifbackgroundIndex];
+        var typeName = "mooh";
+        str = str.replace('./assets/video_gif/','');
+        str = str.replace('.mp4','');
+        backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
+        backgroundName.innerHTML = str;
+        backgroundAuto.innerHTML = autoTypeName;
     }
 }
 
@@ -639,7 +639,7 @@ function loadAuto () {
     else if (localStorage.getItem('auto') == 1)
         {
             autoTypeName = "(auto)";
-            backgroundAuto.style.display="inline-block";
+            // backgroundAuto.style.display="inline-block";
             UpdateUI();
             //UpdateBackgroundName();
             auto = true;
@@ -647,7 +647,7 @@ function loadAuto () {
     else if (localStorage.getItem('auto') == 0)
         {
             autoTypeName = "(manual)";
-            backgroundAuto.style.display="inline-block";
+            // backgroundAuto.style.display="inline-block";
             UpdateUI();
             //UpdateBackgroundName();
             auto = false;
@@ -657,7 +657,7 @@ function loadAuto () {
 function toggleAuto() {
 if (auto == false){
         autoTypeName = "(auto)";
-        backgroundAuto.style.display="inline-block";
+        // backgroundAuto.style.display="inline-block";
         UpdateUI();
         UpdateBackgroundName();
         auto = true;
@@ -668,7 +668,7 @@ if (auto == false){
 
 else if (auto == true){
         autoTypeName = "(manual)";
-        backgroundAuto.style.display="inline-block";
+        // backgroundAuto.style.display="inline-block";
         UpdateUI();
         UpdateBackgroundName();
         auto = false;
