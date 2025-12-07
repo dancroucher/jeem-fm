@@ -98,7 +98,7 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
-    start.innerHTML = "<span><input  class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\"><br><br><input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'><br><br>Click / tap anywhere to start</span>";
+    start.innerHTML = "<span><input class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\"><br><br><input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'><br><br>Click / tap anywhere to start</span>";
     //backgroundAuto.style.display="none";
 
     }, 0);
@@ -786,11 +786,11 @@ function onPlayerReady(event) {
     player.setVolume(100);
     event.target.playVideo();
     player.playVideo();
-    videosInPlaylist = player.getPlaylist();
-    console.log(videosInPlaylist);
-    if (videosInPlaylist.length > 0){
+    // videosInPlaylist = player.getPlaylist();
+    // console.log(videosInPlaylist);
+    // if (videosInPlaylist.length > 0){
         playerReady = true;
-    }
+    //}
     
 
 }
