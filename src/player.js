@@ -529,67 +529,67 @@ function newBackground() {
 }
 
 function loadBackground() {
-    if (bgTypeIndex == 2){
-        if (localStorage.getItem('background') == null){
-            mp4backgroundIndex = 0;  
-        }
-        else
-        {
-            let myBackground = localStorage.getItem('background');
-            mp4backgroundIndex = myBackground;
-        }
-        if (mp4backgroundIndex > mp4backgroundsMax) {
-            mp4backgroundIndex = 0;
-        };
-        var text = mp4backgrounds[mp4backgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video_vid/');
-        mp4background.src = textclean;
-    }
-    else if (bgTypeIndex == 1){
-        if (localStorage.getItem('background') == null){
-            gifbackgroundIndex = 0;  
-        }
-        else
-        {
-            let myBackground = localStorage.getItem('background');
-            gifbackgroundIndex = myBackground;
-        }
-        if (gifbackgroundIndex > gifbackgroundsMax) {
-            gifbackgroundIndex = 0;
-        };
-        var text = gifbackgrounds[gifbackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video_gif/');
-        mp4background.src = textclean;
-    }
-    localStorage.setItem('background', mp4backgroundIndex);
-    localStorage.getItem('background');
-    // UpdateUI();
-    UpdateBackgroundName();
+    // if (bgTypeIndex == 2){
+    //     if (localStorage.getItem('background') == null){
+    //         mp4backgroundIndex = 0;  
+    //     }
+    //     else
+    //     {
+    //         let myBackground = localStorage.getItem('background');
+    //         mp4backgroundIndex = myBackground;
+    //     }
+    //     if (mp4backgroundIndex > mp4backgroundsMax) {
+    //         mp4backgroundIndex = 0;
+    //     };
+    //     var text = mp4backgrounds[mp4backgroundIndex];
+    //     var textclean = text.replace(/^/,'./assets/video_vid/');
+    //     mp4background.src = textclean;
+    // }
+    // else if (bgTypeIndex == 1){
+    //     if (localStorage.getItem('background') == null){
+    //         gifbackgroundIndex = 0;  
+    //     }
+    //     else
+    //     {
+    //         let myBackground = localStorage.getItem('background');
+    //         gifbackgroundIndex = myBackground;
+    //     }
+    //     if (gifbackgroundIndex > gifbackgroundsMax) {
+    //         gifbackgroundIndex = 0;
+    //     };
+    //     var text = gifbackgrounds[gifbackgroundIndex];
+    //     var textclean = text.replace(/^/,'./assets/video_gif/');
+    //     mp4background.src = textclean;
+    // }
+    // localStorage.setItem('background', mp4backgroundIndex);
+    // localStorage.getItem('background');
+    // // UpdateUI();
+    // UpdateBackgroundName();
 }
 
 function changeBackground() {
-    if (bgTypeIndex == 2){
-        mp4backgroundIndex++;
-        if (mp4backgroundIndex > mp4backgroundsMax) {
-            mp4backgroundIndex = 0;
-        };
-        var text = mp4backgrounds[mp4backgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video_vid/');
-        mp4background.src = textclean;
-        localStorage.setItem('background', mp4backgroundIndex);
-    }
-    else if (bgTypeIndex == 1){
-        gifbackgroundIndex++;
-        if (gifbackgroundIndex > gifbackgroundsMax) {
-            gifbackgroundIndex = 0;
-        };
-        var text = gifbackgrounds[gifbackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video_gif/');
-        mp4background.src = textclean;
-        localStorage.setItem('background', gifbackgroundIndex);
-    }
-    localStorage.getItem('background');
-    UpdateBackgroundName();
+    // if (bgTypeIndex == 2){
+    //     mp4backgroundIndex++;
+    //     if (mp4backgroundIndex > mp4backgroundsMax) {
+    //         mp4backgroundIndex = 0;
+    //     };
+    //     var text = mp4backgrounds[mp4backgroundIndex];
+    //     var textclean = text.replace(/^/,'./assets/video_vid/');
+    //     mp4background.src = textclean;
+    //     localStorage.setItem('background', mp4backgroundIndex);
+    // }
+    // else if (bgTypeIndex == 1){
+    //     gifbackgroundIndex++;
+    //     if (gifbackgroundIndex > gifbackgroundsMax) {
+    //         gifbackgroundIndex = 0;
+    //     };
+    //     var text = gifbackgrounds[gifbackgroundIndex];
+    //     var textclean = text.replace(/^/,'./assets/video_gif/');
+    //     mp4background.src = textclean;
+    //     localStorage.setItem('background', gifbackgroundIndex);
+    // }
+    // localStorage.getItem('background');
+    // UpdateBackgroundName();
 }
 
 
