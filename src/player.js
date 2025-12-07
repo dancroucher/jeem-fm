@@ -56,9 +56,9 @@ let pPause = document.querySelector('#play-pause'); // element where play and pa
 var player;
 var youtubes = [];
 var videosInPlaylist = [];
-var soundclouds = [];
-var gifbackgrounds = [];
-var mp4backgrounds = [];
+var animebackgrounds = [];
+var snesbackgrounds = [];
+var videobackgrounds = [];
 var backtypes = [0,1,2];
 var bgTypeIndex;
 var genretypes = [0,1];
@@ -337,15 +337,18 @@ function loadBackgroundType() {
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
+        var text = snesbackgrounds[snesbackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/snes');
+        mp4background.src = textclean;
     }
-    else if (bgTypeIndex == 1){//gif
+    else if (bgTypeIndex == 1){//anime
         //document.getElementById("bg-gif").style.display="none";
         document.getElementById("bg-start").style.display="none";
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
-        var text = gifbackgrounds[gifbackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video_gif/');
+        var text = animebackgrounds[animebackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/anime');
         mp4background.src = textclean;
     }
 
@@ -355,8 +358,8 @@ function loadBackgroundType() {
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
-        var text = mp4backgrounds[mp4backgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video_vid/');
+        var text = videobackgrounds[videobackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/video');
         mp4background.src = textclean;
 
     }
@@ -373,21 +376,24 @@ function changeBackgroundType() {
     if (bgTypeIndex > backtypes.length-1) {
         bgTypeIndex = 0;
     };
-    if (bgTypeIndex == 0){//none
+    if (bgTypeIndex == 0){//snes
         //document.getElementById("bg-gif").style.display="block";
         document.getElementById("bg-start").style.display="none";
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
+        var text = snesbackgrounds[snesbackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/snes');
+        mp4background.src = textclean;
     }
-    else if (bgTypeIndex == 1){//gif
+    else if (bgTypeIndex == 1){//anime
         //document.getElementById("bg-gif").style.display="none";
         document.getElementById("bg-start").style.display="none";
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
-        var text = gifbackgrounds[gifbackgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video_gif/');
+        var text = animebackgrounds[animebackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/anime');
         mp4background.src = textclean;
     }
 
@@ -397,8 +403,8 @@ function changeBackgroundType() {
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
-        var text = mp4backgrounds[mp4backgroundIndex];
-        var textclean = text.replace(/^/,'./assets/video_vid/');
+        var text = videobackgrounds[videobackgroundIndex];
+        var textclean = text.replace(/^/,'./assets/video/video');
         mp4background.src = textclean;
     }
     // else if (bgTypeIndex == 3){//youtube
@@ -418,28 +424,28 @@ function changeBackgroundType() {
 
 function UpdateBackgroundName (){
     if (bgTypeIndex == 2){//video
-        var str = mp4backgrounds[mp4backgroundIndex];
-        var typeName = "mp4";
+        var str = videobackgrounds[videobackgroundIndex];
+        var typeName = "video";
         // str = str.replace('.mp4','');
-        str = str.replace('./assets/video_vid/','');
+        str = str.replace('./assets/video/video','');
         str = str.replace('.mp4','');
         backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
         backgroundName.innerHTML = str;
         backgroundAuto.innerHTML = autoTypeName;
     }
     else if (bgTypeIndex == 1){//gif
-        var str = gifbackgrounds[gifbackgroundIndex];
-        var typeName = "gif";
-        str = str.replace('./assets/video_gif/','');
+        var str = animebackgrounds[animebackgroundIndex];
+        var typeName = "anime";
+        str = str.replace('./assets/video/amime','');
         str = str.replace('.mp4','');
         backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
         backgroundName.innerHTML = str;
         backgroundAuto.innerHTML = autoTypeName;
     }
     else if (bgTypeIndex == 0){//none
-        var str = gifbackgrounds[gifbackgroundIndex];
-        var typeName = "mooh";
-        str = str.replace('./assets/video_gif/','');
+        var str = snesbackgrounds[snesbackgroundIndex];
+        var typeName = "snes";
+        str = str.replace('./assets/video/snes','');
         str = str.replace('.mp4','');
         backgroundType.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+typeName;
         backgroundName.innerHTML = str;
@@ -633,8 +639,8 @@ else{
 
 function loadAuto () {
     if (localStorage.getItem('auto') == null){
-      auto = false;
-      autoTypeName = "(manual)";
+      auto = true;
+      autoTypeName = "(auto)";
     }
     else if (localStorage.getItem('auto') == 1)
         {
@@ -644,13 +650,13 @@ function loadAuto () {
             //UpdateBackgroundName();
             auto = true;
     }
-    else if (localStorage.getItem('auto') == 0)
+    else if (localStorage.getItem('auto') == 1)
         {
-            autoTypeName = "(manual)";
+            autoTypeName = "(auto)";
             // backgroundAuto.style.display="inline-block";
             UpdateUI();
             //UpdateBackgroundName();
-            auto = false;
+            auto = true;
         }
 }
 
