@@ -70,8 +70,8 @@ let playing = false;
 let starting = true;
 let playerReady = false;
 
-var iframeElement   = document.querySelector('iframe');
-var iframeElementID = iframeElement.id;
+// var iframeElement   = document.querySelector('iframe');
+// var iframeElementID = iframeElement.id;
 var widget;
 
 var csv;
