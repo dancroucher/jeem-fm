@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 0);
 }, false);
 
-setInterval(updateProgressValue, 500);
+setInterval(updateProgressValue, 100);
 setInterval(newBackground, 20000);
 
 function playPause() {
@@ -789,12 +789,8 @@ function onPlayerReady(event) {
     player.playVideo();
     videosInPlaylist = player.getPlaylist();
     console.log(videosInPlaylist);
-    if (starting == true && videosInPlaylist.length > 0){
-        doStart();
-    }
-    else
-    {
-        console.log("invalid id");
+    if (videosInPlaylist.length > 0){
+        playerReady = true;
     }
 }
 
@@ -810,6 +806,10 @@ function updateProgressValue() {
         UpdateTrackNumber();
         UpdateUI();
     }
+    else if (starting == true && playerReady == true){
+        doStart();
+    }
+    
 };  
 
 function submitVideoName(){
@@ -843,9 +843,9 @@ function doStart(){
         loadBackgroundType();
         loadAuto();
         changeBackground();
-        starting = false;
         UpdateBackgroundName();
         UpdateUI();
+                starting = false;
 }
 
 var justHidden = false;
