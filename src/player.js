@@ -11,6 +11,7 @@ const mp4background =  document.getElementById('mp4-background');
 const gifbackground =  document.getElementById('gif-background');
 
 const videobox = document.getElementById('videoname');
+var videoName;
 const song = document.querySelector('#song'); // audio object
 //const playlistName = document.getElementById('genre-name');
 const genreNumber = document.getElementById('genre-number');
@@ -96,7 +97,7 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
-    start.innerHTML = "Click / tap anywhere to start";
+    start.innerHTML = "<span class='info-button-out' id='info-button' onclick='infoSlide()'><i class='far fa-question-circle'></i>Click / tap anywhere to start</span>";
     //backgroundAuto.style.display="none";
 
     }, 0);
@@ -228,7 +229,7 @@ document.body.onkeyup = function(e){
 
 
 function checkVideoName(){
-    var videoName = document.getElementById("videoname").value;
+    videoName = document.getElementById("videoname").value;
     
     if (videoName == null){
         videobox.className = 'videobox';
@@ -804,7 +805,7 @@ function updateProgressValue() {
 };  
 
 function submitVideoName(){
-    videoName = document.getElementById("videoname").value;
+    videoName = videobox.value;
     if (videoName.includes("https://www.youtube.com/watch?v=")){
         videoNameClean = videoName.replaceAll('https://www.youtube.com/watch?v=','');
         doVideoName();
@@ -822,15 +823,10 @@ function submitVideoName(){
 
 function doVideoName(){
         console.log(videoNameClean);
-        player.loadVideoById(videoNameClean);
+        //player.loadVideoById(videoNameClean);
         //force YT
-        bgTypeIndex=3;
-        document.getElementById("bg-start").style.display="none";
-        document.getElementById("bg-gif").style.display="none";
-        document.getElementById("bg-mp4").style.display="none";
-        document.getElementById("bg-youtube").style.display="block";
-        UpdateUI();
-        playing = true;
+        //UpdateUI();
+        //playing = true;
         document.getElementById("videoname").value = "";
         document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
         document.getElementById('videoname').blur();
