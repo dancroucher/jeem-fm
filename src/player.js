@@ -789,8 +789,11 @@ function onPlayerReady(event) {
     player.playVideo();
     videosInPlaylist = player.getPlaylist();
     console.log(videosInPlaylist);
-    if (videosInPlaylist.length > 0){
+    if (videosInPlaylist != null){
         playerReady = true;
+    }
+    else{
+        console.log("invalid ID");
     }
 }
 
@@ -842,10 +845,10 @@ function doStart(){
         document.getElementById("song-container").style.display="block";
         loadBackgroundType();
         loadAuto();
-        changeBackground();
+        //changeBackground();
         UpdateBackgroundName();
         UpdateUI();
-                starting = false;
+        starting = false;
 }
 
 var justHidden = false;
