@@ -267,7 +267,7 @@ function getVideoBackgrounds() {
             videobackgroundIndex = Math.floor(Math.random() * videobackgroundsMax);
         }
     }
-    xmlhttp.open("GET", mp4List, true);
+    xmlhttp.open("GET", videoList, true);
     xmlhttp.send();
 }
 
@@ -287,7 +287,7 @@ function getAnimeBackgrounds() {
             animebackgroundIndex = Math.floor(Math.random() * animebackgroundsMax);
         }
     }
-    xmlhttp.open("GET", gifList, true);
+    xmlhttp.open("GET", animeList, true);
     xmlhttp.send()
 }
 
@@ -307,7 +307,7 @@ function getSnesBackgrounds() {
             snesbackgroundIndex = Math.floor(Math.random() * snesbackgroundsMax);
         }
     }
-    xmlhttp.open("GET", gifList, true);
+    xmlhttp.open("GET", snesList, true);
     xmlhttp.send()
 }
 
