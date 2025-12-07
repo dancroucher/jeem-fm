@@ -70,8 +70,8 @@ let playing = false;
 let starting = true;
 let playerReady = false;
 
-// var iframeElement   = document.querySelector('iframe');
-// var iframeElementID = iframeElement.id;
+var iframeElement   = document.querySelector('iframe');
+var iframeElementID = iframeElement.id;
 var widget;
 
 var csv;
@@ -123,6 +123,7 @@ function playPause() {
     else if (starting == true){
         
         document.getElementById("start-container").style.display="none";
+        backgroundName.style.display="none";
         document.getElementById("song-container").style.display="block";
         loadBackgroundType();
         loadAuto();
@@ -412,7 +413,7 @@ function changeBackgroundType() {
     localStorage.setItem('backtype', bgTypeIndex);
     localStorage.getItem('backtype');
     UpdateUI();
-    // UpdateBackgroundName();
+    UpdateBackgroundName();
 }
 
 function UpdateBackgroundName (){
@@ -572,7 +573,6 @@ function UpdateUI() {
     songContainer.className = 'song-container fadein';
     startContainer.className = 'start-container fadein';
     titleContainer.className = 'title-container fadein';
-    soundcloudContainer.className = 'soundcloud-container fadein';
     // if (infoContainer.className == 'info-container fadeout'){
     //     infoContainer.className = 'info-container fadein';
     // }
