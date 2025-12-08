@@ -485,7 +485,7 @@ function changePlaylist(){
 function UpdateTrackNumber(){
         //var trackNumber = parseInt(youtubeIndex, 10);
         var trackNumber = youtubeIndex;
-        genreNumberPrev.innerHTML = "<i class='fa fa-step-backward'></i>";
+        genreNumberPrev.innerHTML = "<i class='fas fa-file-image'></i>";
         genreNumber.innerHTML = (trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
         genreNumberNext.innerHTML = "&nbsp;<i class='fas fa-step-forward'></i>&nbsp;";
         var songTitle = player.getVideoData().title;
