@@ -316,33 +316,33 @@ function getSnesBackgrounds() {
 
 
 function infoSlide() {
-    if (infoOpen == true){
-    //slide away
-      setTimeout(function(){
-            UpdateUI();
-            infoContainer.className = 'info-container-out';
-            infoButton.className = 'info-button-out';
-            infoButton.innerHTML = "<span class='info-button-out' id='info-button' onclick='infoSlide()'><i class='far fa-question-circle'></i></span>";
-            //term.classList.remove('term-focus');
-        }, 0);
-        setTimeout(function(){ 
-            infoContainer.className = 'info-container fadeout';
-            infoButton.className = 'info-button';
-            infoOpen = false;
-        }, 1000);
-    }
-    else {
-    //slide open
-      setTimeout(function(){
-            UpdateUI();
-            infoContainer.className = 'info-container-in';
-            infoButton.className = 'info-button-in';
-            infoButton.innerHTML = "<span class='info-button-in' id='info-button'onclick='infoSlide()'><i class='far fa-question-circle'></i></span>";
-            infoOpen = true;
-            //fauxInput.focus();
-            //term.classList.add('term-focus');
-        }, 0);
-    }
+    // if (infoOpen == true){
+    // //slide away
+    //   setTimeout(function(){
+    //         UpdateUI();
+    //         infoContainer.className = 'info-container-out';
+    //         infoButton.className = 'info-button-out';
+    //         infoButton.innerHTML = "<span class='info-button-out' id='info-button' onclick='infoSlide()'><i class='far fa-question-circle'></i></span>";
+    //         //term.classList.remove('term-focus');
+    //     }, 0);
+    //     setTimeout(function(){ 
+    //         infoContainer.className = 'info-container fadeout';
+    //         infoButton.className = 'info-button';
+    //         infoOpen = false;
+    //     }, 1000);
+    // }
+    // else {
+    // //slide open
+    //   setTimeout(function(){
+    //         UpdateUI();
+    //         infoContainer.className = 'info-container-in';
+    //         infoButton.className = 'info-button-in';
+    //         infoButton.innerHTML = "<span class='info-button-in' id='info-button'onclick='infoSlide()'><i class='far fa-question-circle'></i></span>";
+    //         infoOpen = true;
+    //         //fauxInput.focus();
+    //         //term.classList.add('term-focus');
+    //     }, 0);
+    // }
 }
 
 function loadBackgroundType() {
@@ -619,17 +619,15 @@ function changeBackground() {
 
 function UpdateUI() {
   setTimeout(function(){
-    songContainer.className = 'song-container fadein';
-    startContainer.className = 'start-container fadein';
-    titleContainer.className = 'title-container fadein';
+    // songContainer.className = 'song-container fadein';
+    // startContainer.className = 'start-container fadein';
+    // titleContainer.className = 'title-container fadein';
     // if (infoContainer.className == 'info-container fadeout'){
     //     infoContainer.className = 'info-container fadein';
     // }
     }, 0);
     setTimeout(function(){ 
-    songContainer.className = 'song-container fadeout';
-    startContainer.className = 'start-container fadeout';
-    titleContainer.className = 'title-container fadeout';
+
     // if (infoContainer.className == 'info-container fadein'){
     //     infoContainer.className = 'info-container fadeout';
     // }
@@ -924,6 +922,9 @@ var j;target="_blank";
 
 function hideCursor() {
   document.body.style.cursor = "none";
+    songContainer.className = 'song-container fadeout';
+    startContainer.className = 'start-container fadeout';
+    titleContainer.className = 'title-container fadeout';
   justHidden = true;
   setTimeout(function() {
     justHidden = false;
@@ -936,6 +937,9 @@ function showCursor() {
 
     clearTimeout(j);
     document.body.style.cursor = "default";
+        songContainer.className = 'song-container fadein';
+    startContainer.className = 'start-container fadein';
+    titleContainer.className = 'title-container fadein';
     j = setTimeout(hideCursor, fadeTime);
   }
 };
