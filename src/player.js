@@ -796,7 +796,7 @@ function onPlayerReady(event) {
     }
     else{
         console.log("invalid ID");
-        location.reload();
+        //location.reload();
         //alert("invalid ID");
     }
 }//PLZAH1CMN7BNTA0BOgOJLOHIFIAitFYYy0
