@@ -146,8 +146,11 @@ a:active {
   clear: both;    
   padding-top: 3px;
   padding-left: 6px;
-}
-
+  }
+  .title:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  }
 
 
   .song-name {

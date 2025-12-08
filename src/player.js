@@ -731,11 +731,12 @@ else if (auto == true){
 
 var player;
 
-function playYoutubePlaylist() 
-{
+function playYoutubePlaylist() {
+        window.alert(videoPlaylistName);
+
         //playlistName = "My Playlist";
         //title.innerHTML ="// jeem-fm&nbsp;";
-        title.innerHTML = "<a href='"+location.reload();+"'target='_blank'>// jeem-fm</a>";
+        //title.innerHTML = "<a href='"+location.reload();+"'target='_blank'>// jeem-fm</a>";
         //console.log(videoNameClean);
         player = new YT.Player('bg-youtube', {
           height: '360',
@@ -857,7 +858,6 @@ function updateProgressValue() {
 
 function submitVideoPlaylistName(){
     videoPlaylistName = document.getElementById('video-playlist-entry').value;
-    window.alert(videoPlaylistName);
     if (videoPlaylistName.includes("https://www.youtube.com/playlist?list=")){
         videoPlaylistNameClean = videoPlaylistName.replaceAll('https://www.youtube.com/playlist?list=','');
     }
