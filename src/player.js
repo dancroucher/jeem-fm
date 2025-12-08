@@ -497,6 +497,9 @@ function UpdateTrackNumber(){
 function previousSong() {
     if (youtubeIndex > 1) {
         youtubeIndex--;
+        if (playing == false){
+            mp4background.play();
+        }
         player.previousVideo();
         // player.loadVideoById(youtubes[youtubeIndex]);
         localStorage.setItem('track', youtubeIndex);
@@ -509,6 +512,9 @@ function previousSong() {
 function nextSong() {
     if (youtubeIndex < videosInPlaylist.length){
         youtubeIndex++;
+        if (playing == false){
+            mp4background.play();
+        }
         player.nextVideo();
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
@@ -819,6 +825,24 @@ function updateProgressValue() {
     
 };  
 
+function submitVideoPlaylistName(){
+    videoName = document.getElementById('video-entry').value;
+    //window.alert(videoName);
+    if (videoName.includes("https://www.youtube.com/playlist?list=")){
+        videoNameClean = videoName.replaceAll('https://www.youtube.com/playlist?list=','');
+    }
+    else if (videoName.includes("https://youtu.be")){
+        videoNameClean = videoName.replaceAll('https://youtu.be/','');
+    }
+    else {
+        videoNameClean = videoName;
+        // document.getElementById("videoname").value = "";
+        // document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
+        // videobox.className = 'videobox';
+    }
+    doVideoPlaylistName();
+}
+
 function submitVideoName(){
     videoName = document.getElementById('video-entry').value;
     //window.alert(videoName);
@@ -837,7 +861,8 @@ function submitVideoName(){
     doVideoName();
 }
 
-function doVideoName(){
+
+function doVideoPlaylistName(){
 
         playlistName = videoNameClean;
         playYoutubePlaylist();
