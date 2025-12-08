@@ -403,6 +403,7 @@ function changeBackgroundType() {
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
+        skatingbackgroundIndex = Math.floor(Math.random() * skatingbackgroundsMax);
         var text = skatingbackgrounds[skatingbackgroundIndex];
         var textclean = text.replace(/^/,'./assets/video/skating/');
         mp4background.src = textclean;
@@ -413,6 +414,7 @@ function changeBackgroundType() {
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
+        animebackgroundIndex = Math.floor(Math.random() * animebackgroundsMax);
         var text = animebackgrounds[animebackgroundIndex];
         var textclean = text.replace(/^/,'./assets/video/anime/');
         mp4background.src = textclean;
@@ -424,6 +426,7 @@ function changeBackgroundType() {
         document.getElementById("bg-mp4").style.display="block";
         // document.getElementById("bg-youtube").style.display="none";
         // document.getElementById("background-name").style.display="none";
+        videobackgroundIndex = Math.floor(Math.random() * videobackgroundsMax);
         var text = videobackgrounds[videobackgroundIndex];
         var textclean = text.replace(/^/,'./assets/video/video/');
         mp4background.src = textclean;
@@ -491,7 +494,7 @@ function UpdateTrackNumber(){
         document.getElementById("song-author").className = 'song-author';
         songName.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+songTitle+"</a>";
         songAuthor.innerHTML = "<a href='"+player.getVideoUrl()+"'target='_blank'>"+songChannel+"</a>";
-        playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(songChannel);
+       //playlistName.innerHTML = "<i class='fab fa-youtube'></i>&nbsp;"+(songChannel);
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
 }
