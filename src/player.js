@@ -792,6 +792,9 @@ function onPlayerReady(event) {
     console.log(videosInPlaylist);
     if (videosInPlaylist != null){
         playerReady = true;
+        if (starting == true){
+            doStart();
+        }
     }
     else{
         console.log("invalid ID");
@@ -813,15 +816,6 @@ function updateProgressValue() {
 
     
 };  
-
-function doCheckPlaylist(){
-    if (starting == true && videosInPlaylist != null){
-        doStart();
-    }
-    else{
-        console.log("Invalid ID");
-    }
-}
 
 function submitVideoName(){
     videoName = document.getElementById('video-entry').value;
