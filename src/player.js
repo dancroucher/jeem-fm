@@ -11,8 +11,6 @@ const mp4background =  document.getElementById('mp4-background');
 const mp4altbackground =  document.getElementById('mp4-alt-background');
 // const gifbackground =  document.getElementById('gif-background');
 
-const videobox = document.getElementById('video-entry');
-var videoName;
 const song = document.querySelector('#song'); // audio object
 //const playlistName = document.getElementById('genre-name');
 const genreNumber = document.getElementById('genre-number');
@@ -49,10 +47,14 @@ var youtubeList_game = "assets/lists/game.txt";
 var youtubeList_tdnb = "assets/lists/tdnb.txt";
 var youtubeList_none = "assets/lists/none.txt";
 var fauxInput = document.createElement('textarea');
-var videoName;
+
 var videoList = "assets/lists/video/video.txt";
 var animeList = "assets/lists/video/anime.txt";
 var skatingList = "assets/lists/video/skating.txt";
+var myVideoName;
+var videoName;
+var videoPlaylistName;
+var videoPlaylistNameClean;
 var videoNameClean;
 let pPause = document.querySelector('#play-pause'); // element where play and pause image appears
 var player;
@@ -98,7 +100,7 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
-    start.innerHTML = "<span>Enter Playlist URL or ID: <br><br><input class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\">&nbsp;&nbsp;<input type=\"submit\" value=\"Submit\" onclick='submitVideoPlaylistName()'></span>";
+    start.innerHTML = "<span>Enter Playlist URL or ID: <br><br><input class='videobox' type=\"text\" id=\"video-playlist-entry\" name=\"video-playlist-entry\">&nbsp;&nbsp;<input type=\"submit\" value=\"Submit\" onclick='submitVideoPlaylistName()'><br><br>Enter Video URL or ID: <br><br><input class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\">&nbsp;&nbsp;<input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'></span>";
     //backgroundAuto.style.display="none";
 
     }, 0);
@@ -228,26 +230,26 @@ document.body.onkeyup = function(e){
 
 
 function checkVideoName(){
-    videoName = document.getElementById("videoname").value;
+    // videoName = document.getElementById("videoname").value;
     
-    if (videoName == null){
-        videobox.className = 'videobox';
-    }
-    if (videoName.includes("https://www.youtube.com/watch?v=")){
-        videoNameClean = videoName.replaceAll('https://www.youtube.com/watch?v=','');
-        console.log("OK!!!!!!");
-        videobox.className = 'videobox-ok';
-    }
-    else if (videoName.includes("https://youtu.be")){
-        videoNameClean = videoName.replaceAll('https://youtu.be/','');
-        console.log("OK!!!!!!");
-        videobox.className = 'videobox-ok';
-    }
-    else {
-        videobox.className = 'videobox-notok';
-        console.log("NOT OK");
-        // console.log(videoName);
-    }
+    // if (videoName == null){
+    //     videobox.className = 'videobox';
+    // }
+    // if (videoName.includes("https://www.youtube.com/watch?v=")){
+    //     videoNameClean = videoName.replaceAll('https://www.youtube.com/watch?v=','');
+    //     console.log("OK!!!!!!");
+    //     videobox.className = 'videobox-ok';
+    // }
+    // else if (videoName.includes("https://youtu.be")){
+    //     videoNameClean = videoName.replaceAll('https://youtu.be/','');
+    //     console.log("OK!!!!!!");
+    //     videobox.className = 'videobox-ok';
+    // }
+    // else {
+    //     videobox.className = 'videobox-notok';
+    //     console.log("NOT OK");
+    //     // console.log(videoName);
+    // }
 }
 
 
@@ -501,6 +503,7 @@ function previousSong() {
             mp4background.play();
         }
         player.previousVideo();
+        playing = true;
         // player.loadVideoById(youtubes[youtubeIndex]);
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
@@ -516,6 +519,7 @@ function nextSong() {
             mp4background.play();
         }
         player.nextVideo();
+        playing = true;
         localStorage.setItem('track', youtubeIndex);
         localStorage.getItem('track');
     }
@@ -747,7 +751,7 @@ function playYoutubePlaylist()
             index: youtubeIndex
           },
                   events: {
-            'onReady': onPlayerReady,
+            'onReady': onPlayerReadyPlaylist,
             'onStateChange': onPlayerStateChange
         }
         });
@@ -756,12 +760,12 @@ function playYoutubePlaylist()
 function playYoutubeVideo() {
     // var myVideoId = youtubes[0];
     //var myVideoId = "UL98fEff8yY";
-    var myVideoId = "PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp";
+    //myVideoName = "PLZAH1CMN7BNTQfor1FzJ018CRE2DBLSVp";
     var ctrlq = document.getElementById("bg-youtube");
     player = new YT.Player('bg-youtube', {
         height: '360',
         width: '640',
-        videoId: myVideoId,
+        videoId: myVideoName,
         playerVars: {
             autoplay: 1,
             controls: 0,
@@ -776,8 +780,8 @@ function playYoutubeVideo() {
             'onStateChange': onPlayerStateChange
         }
     });
-    UpdateTrackNumber();
-    UpdateUI();
+    // UpdateTrackNumber();
+    // UpdateUI();
 }
 
 
@@ -786,7 +790,7 @@ function doPopup() {
   popup.classList.toggle("show");
 }
 
-function onPlayerReady(event) {
+function onPlayerReadyPlaylist(event) {
 
     player.setPlaybackQuality("hd1080");
     player.setVolume(100);
@@ -802,13 +806,34 @@ function onPlayerReady(event) {
     }
     else{
         console.log("invalid ID");
-        document.getElementById('video-entry').value = "Invalid ID";
+        document.getElementById('video-playlist-entry').value = "Invalid ID";
         document.getElementById('video-entry').value = "Invalid ID";
         location.reload();
         //alert("invalid ID");
     }
 }//PLZAH1CMN7BNTA0BOgOJLOHIFIAitFYYy0
 
+function onPlayerReady(event) {
+
+    player.setPlaybackQuality("hd1080");
+    player.setVolume(100);
+    event.target.playVideo();
+    player.playVideo();
+    videosInPlaylist = player.getVideo();
+    if (videosInPlaylist != null){
+        playerReady = true;
+        if (starting == true){
+            doStart();
+        }
+    }
+    else{
+        console.log("invalid ID");
+        document.getElementById('video-playlist-entry').value = "Invalid ID";
+        document.getElementById('video-entry').value = "Invalid ID";
+        location.reload();
+        //alert("invalid ID");
+    }
+}
 
 function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.BUFFERING) {
@@ -826,22 +851,21 @@ function updateProgressValue() {
 };  
 
 function submitVideoPlaylistName(){
-    videoName = document.getElementById('video-entry').value;
+    videoPlaylistName = document.getElementById('video-playlist-entry').value;
     //window.alert(videoName);
-    if (videoName.includes("https://www.youtube.com/playlist?list=")){
-        videoNameClean = videoName.replaceAll('https://www.youtube.com/playlist?list=','');
+    if (videoPlaylistName.includes("https://www.youtube.com/playlist?list=")){
+        videoPlaylistNameClean = videoPlaylistName.replaceAll('https://www.youtube.com/playlist?list=','');
     }
-    else if (videoName.includes("https://youtu.be")){
-        videoNameClean = videoName.replaceAll('https://youtu.be/','');
+    else if (videoPlaylistName.includes("https://youtu.be")){
+        videoPlaylistNameClean = videoPlaylistName.replaceAll('https://youtu.be/','');
     }
     else {
-        videoNameClean = videoName;
-        // document.getElementById("videoname").value = "";
-        // document.getElementById("videoname").placeholder = "Enter your own Youtube URL...";
-        // videobox.className = 'videobox';
+        videoPlaylistNameClean = videoPlaylistName;
     }
     doVideoPlaylistName();
 }
+
+
 
 function submitVideoName(){
     videoName = document.getElementById('video-entry').value;
@@ -863,9 +887,13 @@ function submitVideoName(){
 
 
 function doVideoPlaylistName(){
-
-        playlistName = videoNameClean;
+        playlistName = videoPlaylistNameClean;
         playYoutubePlaylist();
+}
+
+function doVideoName(){
+        myVideoName = videoNameClean;
+        playYoutubeVideo();
 }
  
 function doStart(){
