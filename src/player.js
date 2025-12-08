@@ -70,6 +70,7 @@ var genreIndex;
 var youtubeIndex = 1;
 var fadeTime = 3000;
 
+let singleVideo = false;
 let playing = false;
 let starting = true;
 let playerReady = false;
@@ -500,7 +501,7 @@ function UpdateTrackNumber(){
 }
 
 function previousSong() {
-    if (youtubeIndex > 1) {
+    if (!singleVideo && youtubeIndex > 1) {
         youtubeIndex--;
         if (playing == false){
             mp4background.play();
@@ -516,7 +517,7 @@ function previousSong() {
 }
 
 function nextSong() {
-    if (youtubeIndex < videosInPlaylist.length){
+    if (!singleVideo && youtubeIndex < videosInPlaylist.length){
         youtubeIndex++;
         if (playing == false){
             mp4background.play();
@@ -896,6 +897,7 @@ function doVideoPlaylistName(){
 
 function doVideoName(){
         myVideoName = videoNameClean;
+        singleVideo = true;
         playYoutubeVideo();
 }
  
@@ -903,6 +905,12 @@ function doStart(){
         document.getElementById("start-container").style.display="none";
         backgroundName.style.display="none";
         document.getElementById("song-container").style.display="block";
+        if (singleVideo == true)
+        {
+            genreNumberPrev.style.display="none";
+            genreNumber.style.display="none";
+            genreNumberNext.style.display="none";
+        }
         loadBackgroundType();
         loadAuto();
         //changeBackground();
