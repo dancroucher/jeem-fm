@@ -819,7 +819,7 @@ function onPlayerReady(event) {
     player.setVolume(100);
     event.target.playVideo();
     player.playVideo();
-    videosInPlaylist = player.getVideo();
+    videosInPlaylist = player.getVideoUrl();
     if (videosInPlaylist != null){
         playerReady = true;
         if (starting == true){
