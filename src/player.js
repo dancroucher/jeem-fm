@@ -68,7 +68,7 @@ var bgTypeIndex;
 var genretypes = [0,1];
 var genreIndex;
 var youtubeIndex = 1;
-var fadeTime = 600;
+var fadeTime = 3000;
 
 let singleVideo = false;
 let playing = false;
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 setInterval(updateProgressValue, 100);
-setInterval(newBackground, 10000);
+setInterval(newBackground, 16000);
 
 function playPause() {
     if (starting == false){
@@ -532,6 +532,25 @@ function nextSong() {
 }
 
 
+
+
+function fadeOut(el, duration) {
+
+    /*
+     * @param el - The element to be faded out.
+     * @param duration - Animation duration in milliseconds.
+     */
+
+    var step = 10 / duration,
+        opacity = 1;
+    function next() {
+        if (opacity <= 0) { return; }
+        el.style.opacity = ( opacity -= step );
+        setTimeout(next, 10);
+    }
+    next();
+}
+
 function clearData() {
     localStorage.clear();
 }
@@ -542,45 +561,6 @@ function newBackground() {
     }   
 }
 
-function loadBackground() {
-    // if (bgTypeIndex == 2){
-    //     if (localStorage.getItem('background') == null){
-    //         mp4backgroundIndex = 0;  
-    //     }
-    //     else
-    //     {
-    //         let myBackground = localStorage.getItem('background');
-    //         mp4backgroundIndex = myBackground;
-    //     }
-    //     if (mp4backgroundIndex > mp4backgroundsMax) {
-    //         mp4backgroundIndex = 0;
-    //     };
-    //     var text = mp4backgrounds[mp4backgroundIndex];
-    //     var textclean = text.replace(/^/,'./assets/video_vid/');
-    //     mp4background.src = textclean;
-    // }
-    // else if (bgTypeIndex == 1){
-    //     if (localStorage.getItem('background') == null){
-    //         gifbackgroundIndex = 0;  
-    //     }
-    //     else
-    //     {
-    //         let myBackground = localStorage.getItem('background');
-    //         gifbackgroundIndex = myBackground;
-    //     }
-    //     if (gifbackgroundIndex > gifbackgroundsMax) {
-    //         gifbackgroundIndex = 0;
-    //     };
-    //     var text = gifbackgrounds[gifbackgroundIndex];
-    //     var textclean = text.replace(/^/,'./assets/video_gif/');
-    //     mp4background.src = textclean;
-    // }
-    // localStorage.setItem('background', mp4backgroundIndex);
-    // localStorage.getItem('background');
-    // // UpdateUI();
-    // UpdateBackgroundName();
-}
-
 function changeBackground() {
     if (bgTypeIndex == 2){
         videobackgroundIndex++;
@@ -589,6 +569,7 @@ function changeBackground() {
         };
         var text = videobackgrounds[videobackgroundIndex];
         var textclean = text.replace(/^/,'./assets/video/video/');
+        fadeOut(mp4background, 1000);
         mp4background.src = textclean;
         localStorage.setItem('background', videobackgroundIndex);
     }
@@ -928,7 +909,7 @@ function hideCursor() {
   justHidden = true;
   setTimeout(function() {
     justHidden = false;
-  }, 600);
+  }, 500);
 }
 
 function showCursor() {
