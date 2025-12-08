@@ -485,7 +485,7 @@ function changePlaylist(){
 function UpdateTrackNumber(){
         //var trackNumber = parseInt(youtubeIndex, 10);
         var trackNumber = youtubeIndex;
-        genreNumberPrev.innerHTML = "&nbsp;<i class='fa fa-step-backward'></i>&nbsp;";
+        genreNumberPrev.innerHTML = "&nbsp;<i class='fa fa-step-backward' onclick='previousSong()'></i>&nbsp;";
         genreNumber.innerHTML = (trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
         genreNumberNext.innerHTML = "&nbsp;<i class='fa fa-step-forward'></i>&nbsp;";
         var songTitle = player.getVideoData().title;
@@ -534,22 +534,6 @@ function nextSong() {
 
 
 
-function fadeOut(el, duration) {
-
-    /*
-     * @param el - The element to be faded out.
-     * @param duration - Animation duration in milliseconds.
-     */
-
-    var step = 10 / duration,
-        opacity = 1;
-    function next() {
-        if (opacity <= 0) { return; }
-        el.style.opacity = ( opacity -= step );
-        setTimeout(next, 10);
-    }
-    next();
-}
 
 function clearData() {
     localStorage.clear();
@@ -569,7 +553,7 @@ function changeBackground() {
         };
         var text = videobackgrounds[videobackgroundIndex];
         var textclean = text.replace(/^/,'./assets/video/video/');
-        fadeOut(mp4background, 1000);
+
         mp4background.src = textclean;
         localStorage.setItem('background', videobackgroundIndex);
     }

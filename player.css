@@ -149,7 +149,6 @@ a:active {
   }
   .title:hover{
   background-color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
   }
 
 
@@ -167,7 +166,6 @@ a:active {
   }
   .song-name:hover{
   background-color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
   }
 
   .song-author {
@@ -189,7 +187,6 @@ a:active {
 
   .song-author:hover{
   background-color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
   }
 
   .background-name {
