@@ -731,12 +731,12 @@ else if (auto == true){
 var player;
 
 function playYoutubePlaylist() {
-        window.alert(videoPlaylistName);
+        //window.alert(videoPlaylistName);
 
         //playlistName = "My Playlist";
         //title.innerHTML ="// jeem-fm&nbsp;";
         //title.innerHTML = "<a href='"+location.reload();+"'target='_blank'>// jeem-fm</a>";
-        //console.log(videoNameClean);
+        console.log(videoPlaylistName);
         player = new YT.Player('bg-youtube', {
           height: '360',
           width: '640',
