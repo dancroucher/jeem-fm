@@ -98,7 +98,7 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
-    start.innerHTML = "<span><input class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\"><br><br><input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'><br><br>Click / tap anywhere to start</span>";
+    start.innerHTML = "<span><br><br>Enter Playlist URL or ID: <br><input class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\">input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'></span>";
     //backgroundAuto.style.display="none";
 
     }, 0);
@@ -523,7 +523,7 @@ function clearData() {
 }
 
 function newBackground() {
-    if (auto == true){
+    if (auto == true && playing == true){
         changeBackground();
     }   
 }
@@ -796,6 +796,8 @@ function onPlayerReady(event) {
     }
     else{
         console.log("invalid ID");
+        document.getElementById('video-entry').value = "Invalid ID";
+        document.getElementById('video-entry').value = "Invalid ID";
         location.reload();
         //alert("invalid ID");
     }
