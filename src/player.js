@@ -485,10 +485,10 @@ function changePlaylist(){
 function UpdateTrackNumber(){
         //var trackNumber = parseInt(youtubeIndex, 10);
         var trackNumber = youtubeIndex;
-        genreNumberPrev.innerHTML = "<i class='fas fa-file-image'></i>&nbsp;"+"ss";
+        genreNumberPrev.innerHTML = "<<";
         // genreNumberPrev.innerHTML = "<i class='fas fa-file-image'></i>";
         genreNumber.innerHTML = (trackNumber)+"&nbsp;/&nbsp;"+(videosInPlaylist.length);
-        genreNumberNext.innerHTML = "&nbsp;<i class='fas fa-step-forward'></i>&nbsp;";
+        genreNumberNext.innerHTML = ">>";
         var songTitle = player.getVideoData().title;
         var songChannel = player.getVideoData().author;
         //var playlistName = player.title;

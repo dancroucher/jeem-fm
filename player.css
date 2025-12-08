@@ -63,14 +63,14 @@ a:active {
     background: rgba(0,0,0,0);
     border: 0.13em solid rgba(250,249,246,0.9);
     color:  rgba(250,249,246,0.9);
-    border-radius: 1px;
+    border-radius: 1px;                   
     text-align: center;
     clear: both;
-    line-height: 1em;
+    line-height: 0em;
     outline-offset: 0px;
     margin-right: 6px;
     margin-left: 6px;
-    padding: 2px 4px 0px 6px;
+    padding: 2px 0px 0px 6px;
     cursor: pointer;
 }
 
