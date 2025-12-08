@@ -745,8 +745,6 @@ function playYoutubePlaylist()
             'onStateChange': onPlayerStateChange
         }
         });
-        doCheckPlaylist();
-
 }
 
 function playYoutubeVideo() {
@@ -798,6 +796,7 @@ function onPlayerReady(event) {
     }
     else{
         console.log("invalid ID");
+        alert("invalid ID");
     }
 }
 
