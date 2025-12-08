@@ -922,9 +922,9 @@ var j;target="_blank";
 
 function hideCursor() {
   document.body.style.cursor = "none";
-    songContainer.className = 'song-container fadeout';
-    startContainer.className = 'start-container fadeout';
-    titleContainer.className = 'title-container fadeout';
+    // songContainer.className = 'song-container fadeout';
+    // startContainer.className = 'start-container fadeout';
+    // titleContainer.className = 'title-container fadeout';
   justHidden = true;
   setTimeout(function() {
     justHidden = false;
