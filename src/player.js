@@ -734,7 +734,8 @@ var player;
 function playYoutubePlaylist() 
 {
         //playlistName = "My Playlist";
-        title.innerHTML ="// jeem-fm&nbsp;";
+        //title.innerHTML ="// jeem-fm&nbsp;";
+        title.innerHTML = "<a href='"+location.reload();+"'target='_blank'>// jeem-fm</a>";
         //console.log(videoNameClean);
         player = new YT.Player('bg-youtube', {
           height: '360',
