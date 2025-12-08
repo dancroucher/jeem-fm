@@ -98,7 +98,7 @@ window.onload = function() {
 document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
     //mp4background.play();
-    start.innerHTML = "<span>Enter Playlist URL or ID: <br><br><input class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\">&nbsp;&nbsp;<input type=\"submit\" value=\"Submit\" onclick='submitVideoName()'></span>";
+    start.innerHTML = "<span>Enter Playlist URL or ID: <br><br><input class='videobox' type=\"text\" id=\"video-entry\" name=\"video-entry\">&nbsp;&nbsp;<input type=\"submit\" value=\"Submit\" onclick='submitVideoPlaylistName()'></span>";
     //backgroundAuto.style.display="none";
 
     }, 0);
