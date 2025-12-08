@@ -68,7 +68,7 @@ var bgTypeIndex;
 var genretypes = [0,1];
 var genreIndex;
 var youtubeIndex = 1;
-var fadeTime = 3000;
+var fadeTime = 600;
 
 let singleVideo = false;
 let playing = false;
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 setInterval(updateProgressValue, 100);
-setInterval(newBackground, 20000);
+setInterval(newBackground, 10000);
 
 function playPause() {
     if (starting == false){
@@ -922,13 +922,13 @@ var j;target="_blank";
 
 function hideCursor() {
   document.body.style.cursor = "none";
-    // songContainer.className = 'song-container fadeout';
-    // startContainer.className = 'start-container fadeout';
-    // titleContainer.className = 'title-container fadeout';
+    songContainer.className = 'song-container fadeout';
+    startContainer.className = 'start-container fadeout';
+    titleContainer.className = 'title-container fadeout';
   justHidden = true;
   setTimeout(function() {
     justHidden = false;
-  }, 500);
+  }, 600);
 }
 
 function showCursor() {
